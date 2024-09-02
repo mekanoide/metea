@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-gray-100;
+}
+
+main {
+  @apply mx-auto p-6;
+  width: min(calc(100% - 2rem), 1024px);
+}
+
+h1 {
+  @apply text-3xl font-bold mb-8;
+}
