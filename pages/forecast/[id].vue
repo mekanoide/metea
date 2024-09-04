@@ -10,6 +10,18 @@ const normalizedPopulation = computed(() => {
   }).format(forecast.value.town.num_hab)
 })
 
+const formattedLatitude = computed(() => {
+  const latitude = `${forecast.value.town.latitud.split('\'')[0]}'`
+  const hemisphere = latitude[0] === '-' ? 'S' : 'N'
+  return `${latitude}${hemisphere}`
+})
+
+const formattedLongitude = computed(() => {
+  const longitude = `${forecast.value.town.longitud.split('\'')[0]}'`
+  const hemisphere = longitude[0] === '-' ? 'E' : 'W'
+  return `${longitude}${hemisphere}`
+})
+
 function normalizedPeriod(period: string) {
   if (period === '00-12') return 'AM'
   return 'PM'
@@ -32,10 +44,10 @@ useHead({
             // {{ forecast.province.nombre }}</span
           >
         </h1>
-        <p class="text-lg"></p>
         <p>
-          Altitud:
-          <span class="font-semibold">{{ forecast.town.altitud }}m</span>
+          Altitud: <span class="font-semibold">{{ forecast.town.altitud }}m</span>
+          Latitud: <span class="font-semibold">{{ formattedLatitude }}</span>
+          Longitud: <span class="font-semibold">{{ formattedLongitude }}</span>
         </p>
         <p>
           Población:
