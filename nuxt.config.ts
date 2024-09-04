@@ -15,7 +15,7 @@ export default defineNuxtConfig({
     API_URL: process.env.API_URL,
     API_KEY: process.env.API_KEY
   },
-  modules: ['nuxt-time'],
+  modules: ['nuxt-time', '@nuxt/icon'],
   css: ['@/styles/main.css'],
   postcss: {
     plugins: {

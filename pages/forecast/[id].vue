@@ -29,7 +29,7 @@ useHead({
         <h1 class="mb-2">
           <span class="text-4xl font-semibold">{{ forecast.town.nombre }}</span
           ><span class="text-xl font-semibold">
-            . {{ forecast.province.nombre }}</span
+            // {{ forecast.province.nombre }}</span
           >
         </h1>
         <p class="text-lg"></p>
@@ -54,18 +54,18 @@ useHead({
               locale="es" />
           </h2>
           <div v-if="dia.estadoCielo.length > 1">
-            <p>
-              {{ normalizedPeriod(dia.estadoCielo[1].periodo) }}
+            <p v-if="dia.estadoCielo[1].descripcion">
+              {{ normalizedPeriod(dia.estadoCielo[1].periodo) }}:
               <span class="font-semibold">
                 {{ dia.estadoCielo[1].descripcion }}
-                {{ dia.probPrecipitacion[1].value }}%
+                <Icon name="mdi:water" /> {{ dia.probPrecipitacion[1].value }}%
               </span>
             </p>
             <p>
-              {{ normalizedPeriod(dia.estadoCielo[2].periodo) }}
+              {{ normalizedPeriod(dia.estadoCielo[2].periodo) }}:
               <span class="font-semibold">
                 {{ dia.estadoCielo[2].descripcion }}
-                {{ dia.probPrecipitacion[2].value }}%
+                <Icon name="mdi:water" /> {{ dia.probPrecipitacion[2].value }}%
               </span>
             </p>
           </div>

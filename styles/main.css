@@ -11,6 +11,10 @@ input:is([type="text"], [type="search"], [type="url"], [type="email"], [type="pa
   @apply border-2 border-zinc-900 bg-zinc-800 w-full p-4 rounded;
 }
 
+a {
+  @apply underline underline-offset-4;
+}
+
 @media (prefers-color-scheme: dark) {
   body {
     @apply bg-zinc-900 text-zinc-100;
