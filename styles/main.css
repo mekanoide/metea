@@ -3,14 +3,12 @@
 @tailwind utilities;
 
 body {
-  @apply bg-gray-100;
-}
-
-main {
-  @apply mx-auto p-6;
+  @apply text-zinc-800 bg-zinc-100 mx-auto p-6;
   width: min(calc(100% - 2rem), 1024px);
 }
 
-h1 {
-  @apply text-3xl font-bold mb-8;
+@media (prefers-color-scheme: dark) {
+  body {
+    @apply bg-zinc-900 text-zinc-100;
+  }
 }
