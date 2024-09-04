@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "@nuxt/icon": "^1.5.1",
-    "iconv-lite": "^0.6.3",
     "nuxt": "^3.13.0",
     "vue": "latest"
   },
