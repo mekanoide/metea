@@ -4,9 +4,12 @@ export default defineEventHandler((event) => {
   const query = getQuery(event)
   const searchTerm = query.search || ''
 
+  function normalizeText(txt: string) {
+    return txt.normalize('NFD').replace(/[\u0300-\u036f]/g, '') // Elimina acentos
+  }
   // Filtrar municipios según el término de búsqueda
   const results = towns.filter((town) =>
-    town.nombre.toLowerCase().includes(searchTerm)
+    normalizeText(town.nombre.toLowerCase()).includes(normalizeText(searchTerm))
   )
 
   const sortedResults = results.sort((a, b) => {

@@ -30,8 +30,7 @@ function onNavigateToTown(id: string) {
 <template>
   <div class="grid relative">
     <input
-      type="text"
-      class="border-2 border-zinc-900 w-full p-2 rounded"
+      type="search"
       style="anchor-name: --search-input;"
       placeholder="Buscar municipio..."
       v-model="searchQuery"
@@ -41,10 +40,10 @@ function onNavigateToTown(id: string) {
       style="position-anchor: --search-input; top: anchor(--search-input bottom); left: anchor(--search-input left); right: anchor(--search-input left);"
       ref="resultsLayer"
       v-if="searchResults.length > 0"
-      class="absolute bg-white max-h-[66dvh] w-[min(100% - 2rem, 1024px)]">
+      class="absolute shadow-2xl rounded bg-zinc-100 max-h-[66dvh] w-[min(100% - 2rem, 1024px)] dark:bg-zinc-800 dark:text-zinc-200">
       <li
         v-for="town in searchResults"
-        class="block border-t border-1 border-zinc-200 cursor-pointer p-4"
+        class="block border-t border-1 border-dashed border-zinc-300 cursor-pointer p-4 hover:bg-zinc-200 dark:border-zinc-700 dark:hover:bg-zinc-700 dark:hover:text-zinc-50"
         role="button"
         @click.prevent="onNavigateToTown(town.id)">
         {{ town.nombre }}

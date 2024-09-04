@@ -9,6 +9,15 @@ const normalizedPopulation = computed(() => {
     maximumFractionDigits: 0
   }).format(forecast.value.town.num_hab)
 })
+
+function normalizedPeriod(period: string) {
+  if (period === '00-12') return 'AM'
+  return 'PM'
+}
+
+useHead({
+  title: `Previsión para ${forecast.value?.town?.nombre} | Metea`
+})
 </script>
 
 <template>
@@ -17,7 +26,7 @@ const normalizedPopulation = computed(() => {
     <article v-if="forecast">
       <div class="py-6">
         <!-- {{ forecast.town }} -->
-        <h1>
+        <h1 class="mb-2">
           <span class="text-4xl font-semibold">{{ forecast.town.nombre }}</span
           ><span class="text-xl font-semibold">
             . {{ forecast.province.nombre }}</span
@@ -36,7 +45,7 @@ const normalizedPopulation = computed(() => {
         v-for="dia in forecast.prediccion.dia"
         class="py-6 border-t border-1 border-dashed border-zinc-300 dark:border-zinc-700 flex justify-between">
         <div>
-          <h2 class="text-xl font-semibold first-letter:capitalize">
+          <h2 class="text-xl font-semibold first-letter:capitalize mb-2">
             <NuxtTime
               :datetime="dia.fecha"
               day="numeric"
@@ -46,15 +55,15 @@ const normalizedPopulation = computed(() => {
           </h2>
           <div v-if="dia.estadoCielo.length > 1">
             <p>
-              {{ dia.estadoCielo[1].periodo }}
-              <span class="font-bold">
+              {{ normalizedPeriod(dia.estadoCielo[1].periodo) }}
+              <span class="font-semibold">
                 {{ dia.estadoCielo[1].descripcion }}
                 {{ dia.probPrecipitacion[1].value }}%
               </span>
             </p>
             <p>
-              {{ dia.estadoCielo[2].periodo }}
-              <span class="font-bold">
+              {{ normalizedPeriod(dia.estadoCielo[2].periodo) }}
+              <span class="font-semibold">
                 {{ dia.estadoCielo[2].descripcion }}
                 {{ dia.probPrecipitacion[2].value }}%
               </span>
@@ -62,7 +71,7 @@ const normalizedPopulation = computed(() => {
           </div>
           <p v-else>
             {{ dia.estadoCielo[0].periodo }}
-            <span class="font-bold">{{ dia.estadoCielo[0].descripcion }}</span>
+            <span class="font-semibold">{{ dia.estadoCielo[0].descripcion }}</span>
             {{ dia.probPrecipitacion[0].value }}%
           </p>
           <!-- {{ dia }} -->

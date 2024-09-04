@@ -7,8 +7,15 @@ body {
   width: min(calc(100% - 2rem), 1024px);
 }
 
+input:is([type="text"], [type="search"], [type="url"], [type="email"], [type="password"]) {
+  @apply border-2 border-zinc-900 bg-zinc-800 w-full p-4 rounded;
+}
+
 @media (prefers-color-scheme: dark) {
   body {
     @apply bg-zinc-900 text-zinc-100;
+  }
+  input:is([type="text"], [type="search"], [type="url"], [type="email"], [type="password"]) {
+    @apply border-zinc-400;
   }
 }
