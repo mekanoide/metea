@@ -19,7 +19,14 @@ export default defineNuxtConfig({
         { name: 'author', content: 'mekanoide' },
         { name: 'google-adsense-account', content: process.env.ADSENSE_ID },
       ],
-      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+      script: [
+        {
+          async: true,
+          src: `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.ADSENSE_ID}`,
+          crossorigin: 'anonymous'
+        }
+      ]
     }
   },
   runtimeConfig: {
