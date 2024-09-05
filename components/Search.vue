@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onClickOutside } from '@vueuse/core';
+import { onClickOutside } from '@vueuse/core'
 
 const searchQuery = ref('')
 const searchResults = ref<any>([])
@@ -49,7 +49,7 @@ watch(searchQuery, () => {
     <ul
       v-if="searchResults.length > 0"
       ref="resultsLayer"
-      class="absolute z-50 top-16 shadow-2xl rounded-lg bg-zinc-100 max-h-[66dvh] overflow-y-auto w-full dark:bg-zinc-800 dark:text-zinc-200">
+      class="absolute z-50 top-16 left-0 right-0 shadow-2xl rounded-lg bg-zinc-100 max-h-[66dvh] overflow-y-auto dark:bg-zinc-800 dark:text-zinc-200">
       <li
         v-for="town in searchResults"
         class="block border-t border-1 border-dashed border-zinc-300 cursor-pointer p-4 hover:bg-zinc-200 dark:border-zinc-700 dark:hover:bg-zinc-700 dark:hover:text-zinc-50"

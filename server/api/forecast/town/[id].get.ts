@@ -29,5 +29,5 @@ export default defineEventHandler(async (event: any) => {
   console.log('province', province[0])
   const forecast = JSON.parse(response)[0]
 
-  return { ...forecast, town: town[0], province: province[0] }
+  return { ...forecast, town: { ...town[0], province: province[0] } }
 })

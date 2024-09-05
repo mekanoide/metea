@@ -2,14 +2,14 @@ import towns from '@/server/data/towns.json' // Asumiendo que tienes un archivo 
 
 export default defineEventHandler((event) => {
   const query = getQuery(event)
-  const searchTerm = query.search || ''
+  const searchTerm = query.search as string || ''
 
   function normalizeText(txt: string) {
     return txt.normalize('NFD').replace(/[\u0300-\u036f]/g, '') // Elimina acentos
   }
   // Filtrar municipios según el término de búsqueda
   const results = towns.filter((town) =>
-    normalizeText(town.nombre.toLowerCase()).startsWith(normalizeText(searchTerm))
+    normalizeText(town.nombre.toLowerCase()).startsWith(normalizeText(searchTerm.toLowerCase()))
   )
 
   const sortedResults = results.sort((a, b) => {
