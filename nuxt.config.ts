@@ -7,7 +7,18 @@ export default defineNuxtConfig({
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
       title: 'Metea | Previsión metereológica',
-      meta: [{ name: 'description', content: 'Previsión metereológica para España basada en la API de la Agencia Estatal de Meteorología.' }],
+      meta: [
+        {
+          name: 'description',
+          content:
+            'Previsión metereológica para España basada en la API de la Agencia Estatal de Meteorología.'
+        },
+        {
+          name: 'keywords'
+        },
+        { name: 'author', content: 'mekanoide' },
+        { name: 'google-adsense-account', content: process.env.ADSENSE_ID },
+      ],
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
     }
   },
