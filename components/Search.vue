@@ -5,7 +5,7 @@ const searchQuery = ref('')
 const searchResults = ref<any>([])
 const resultsLayer = ref<HTMLElement | null>(null)
 
-async function onSearch(e: Event) {
+async function onSearch() {
   if (!searchQuery.value) {
     searchResults.value = []
     return
@@ -28,6 +28,16 @@ function onNavigateToTown(id: string) {
 onClickOutside(resultsLayer, () => {
   searchResults.value = []
 })
+
+watch(searchQuery, () => {
+  if (!searchQuery.value) {
+    searchResults.value = []
+  }
+
+  if (searchQuery.value.length >= 2) {
+    onSearch()
+  }
+})
 </script>
 
 <template>
@@ -35,12 +45,11 @@ onClickOutside(resultsLayer, () => {
     <input
       type="search"
       placeholder="Buscar municipio..."
-      v-model="searchQuery"
-      @input="onSearch" />
+      v-model="searchQuery" />
     <ul
       v-if="searchResults.length > 0"
       ref="resultsLayer"
-      class="absolute top-16 shadow-2xl rounded-lg bg-zinc-100 max-h-[66dvh] overflow-y-auto w-full dark:bg-zinc-800 dark:text-zinc-200">
+      class="absolute z-50 top-16 shadow-2xl rounded-lg bg-zinc-100 max-h-[66dvh] overflow-y-auto w-full dark:bg-zinc-800 dark:text-zinc-200">
       <li
         v-for="town in searchResults"
         class="block border-t border-1 border-dashed border-zinc-300 cursor-pointer p-4 hover:bg-zinc-200 dark:border-zinc-700 dark:hover:bg-zinc-700 dark:hover:text-zinc-50"

@@ -1,5 +1,3 @@
 <template>
-  <main>
-    <Search />
-  </main>
+  <Search />
 </template>

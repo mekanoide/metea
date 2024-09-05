@@ -9,7 +9,7 @@ export default defineEventHandler((event) => {
   }
   // Filtrar municipios según el término de búsqueda
   const results = towns.filter((town) =>
-    normalizeText(town.nombre.toLowerCase()).includes(normalizeText(searchTerm))
+    normalizeText(town.nombre.toLowerCase()).startsWith(normalizeText(searchTerm))
   )
 
   const sortedResults = results.sort((a, b) => {
