@@ -31,7 +31,10 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     API_URL: process.env.API_URL,
-    API_KEY: process.env.API_KEY
+    API_KEY: process.env.API_KEY,
+    public: {
+      ADSENSE_ID: process.env.ADSENSE_ID
+    }
   },
   modules: ['nuxt-time', '@nuxt/icon'],
   css: ['@/styles/main.css'],
