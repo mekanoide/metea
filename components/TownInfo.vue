@@ -29,19 +29,29 @@ const formattedLongitude = computed(() => {
 
 <template>
   <div class="py-6">
-    <h1 class="mb-2">
-      <span class="text-4xl font-semibold">{{ props.data.nombre }}</span
-      ><span class="text-xl font-semibold"> // {{ props.data.province.nombre }}</span>
+    <h1 class="flex gap-x-6 mb-4 items-baseline justify-start flex-wrap">
+      <span class="text-3xl font-semibold text-ellipsis">{{
+        props.data.nombre
+      }}</span>
+      <span
+        v-if="props.data.province"
+        class="text-xl"
+        >{{ props.data.province.nombre }}</span
+      >
     </h1>
-    <p>
-      Altitud:
-      <span class="font-semibold">{{ props.data.altitud }}m</span> Latitud:
-      <span class="font-semibold">{{ formattedLatitude }}</span> Longitud:
-      <span class="font-semibold">{{ formattedLongitude }}</span>
-    </p>
-    <p>
-      Población:
-      <span class="font-semibold">{{ normalizedPopulation }}</span>
-    </p>
+    <div class="flex gap-x-6 flex-wrap mb-4">
+      <div>
+        Altitud: <span class="font-semibold">{{ props.data.altitud }}m</span>
+      </div>
+      <div>
+        Latitud: <span class="font-semibold">{{ formattedLatitude }}</span>
+      </div>
+      <div>
+        Longitud: <span class="font-semibold">{{ formattedLongitude }}</span>
+      </div>
+    </div>
+    <div>
+      Población: <span class="font-semibold">{{ normalizedPopulation }}</span>
+    </div>
   </div>
 </template>

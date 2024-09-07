@@ -9,5 +9,5 @@ export type Town = {
   latitud: string
   longitud: string
   altitud: number
-  province: Province
+  province?: Province
 }

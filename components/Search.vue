@@ -49,13 +49,13 @@ watch(searchQuery, () => {
     <ul
       v-if="searchResults.length > 0"
       ref="resultsLayer"
-      class="absolute z-50 top-16 left-0 right-0 shadow-2xl rounded-lg bg-zinc-100 max-h-[66dvh] overflow-y-auto dark:bg-zinc-800 dark:text-zinc-200">
+      class="absolute z-50 top-16 left-0 right-0 shadow-2xl bg-neutral-100 max-h-[66dvh] overflow-y-auto dark:bg-neutral-800 dark:text-neutral-200">
       <li
         v-for="town in searchResults"
-        class="block border-t border-1 border-dashed border-zinc-300 cursor-pointer p-4 hover:bg-zinc-200 dark:border-zinc-700 dark:hover:bg-zinc-700 dark:hover:text-zinc-50"
+        class="block border-t border-1 border-dashed border-neutral-300 first:border-0 cursor-pointer p-4 hover:bg-neutral-200 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:hover:text-neutral-50"
         role="button"
         @click.prevent="onNavigateToTown(town.id)">
-        {{ town.nombre }}
+        <span class="font-semibold">{{ town.nombre }}</span>, {{ town.province }}
       </li>
     </ul>
   </div>

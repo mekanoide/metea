@@ -1,13 +1,18 @@
 <script setup lang="ts">
 const route = useRoute()
+const { saveVisitedTown } = useVisitedTowns()
 
 const pending = ref<boolean>(true)
 const forecast = ref<any>()
+const id = route.params.id as string
+
 
 onMounted(async () => {
   pending.value = true
-  const { data } = await useFetch(`/api/forecast/town/${route.params.id}`)
+  const { data } = await useFetch(`/api/forecast/town/${id}`)
   forecast.value = data.value
+  console.log('forecast', forecast.value)
+  saveVisitedTown({ id: id, name: forecast.value.town.nombre, province: forecast.value.town.province.nombre })
   pending.value = false
 })
 
