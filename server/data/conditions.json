@@ -1,70 +1,70 @@
 [
   {
     "description": "Despejado",
-    "icon": "fluent:weather-sunny-48-regular"
+    "icon": "wi:day-sunny"
   },
   {
     "description": "Intervalos nubosos",
-    "icon": "fluent:weather-partly-cloudy-day-48-regular"
+    "icon": "wi:day-cloudy"
   },
   {
     "description": "Poco nuboso",
-    "icon": "fluent:weather-partly-cloudy-day-48-regular"
+    "icon": "wi:day-cloudy"
   },
   {
     "description": "Nubes altas",
-    "icon": "fluent:weather-partly-cloudy-day-48-regular"
+    "icon": "wi:day-cloudy-high"
   },
   {
     "description": "Nuboso",
-    "icon": "fluent:weather-cloudy-48-regular"
+    "icon": "wi:cloudy"
   },
   {
     "description": "Muy nuboso",
-    "icon": "fluent:weather-cloudy-48-regular"
+    "icon": "wi:cloudy"
   },
   {
     "description": "Cubierto",
-    "icon": "fluent:weather-cloudy-48-regular"
+    "icon": "wi:cloudy"
   },
   {
     "description": "Intervalos nubosos con lluvia escasa",
-    "icon": "fluent:weather-rain-48-regular"
+    "icon": "wi:day-showers"
   },
   {
     "description": "Intervalos nubosos con lluvia",
-    "icon": "fluent:weather-rain-48-regular"
+    "icon": "wi:day-rain"
   },
   {
     "description": "Cubierto con lluvia escasa",
-    "icon": "fluent:weather-rain-48-regular"
+    "icon": "wi:showers"
   },
   {
     "description": "Cubierto con lluvia",
-    "icon": "fluent:weather-rain-48-regular"
+    "icon": "wi:rain"
   },
   {
     "description": "Nuboso con lluvia escasa",
-    "icon": "fluent:weather-rain-48-regular"
+    "icon": "wi:rain"
   },
   {
     "description": "Nuboso con lluvia",
-    "icon": "fluent:weather-rain-48-regular"
+    "icon": "wi:rain"
   },
   {
     "description": "Muy nuboso con lluvia escasa",
-    "icon": "fluent:weather-rain-48-regular"
+    "icon": "wi:showers"
   },
   {
     "description": "Muy nuboso con lluvia",
-    "icon": "fluent:weather-rain-48-regular"
+    "icon": "wi:rain"
   },
   {
     "description": "Cubierto con lluvia escasa",
-    "icon": "fluent:weather-rain-48-regular"
+    "icon": "wi:showers"
   },
   {
     "description": "Cubierto con lluvia",
-    "icon": "fluent:weather-rain-48-regular"
+    "icon": "wi:rain"
   }
 ]
