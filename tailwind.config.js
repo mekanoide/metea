@@ -10,7 +10,7 @@ export default {
   ],
   theme: {
     fontFamily: {
-      sans: ['Inter', 'sans-serif']
+      sans: ['Inconsolata', 'sans-serif']
     },
     extend: {}
   },

@@ -16,7 +16,7 @@ const period = computed(() => {
 </script>
 
 <template>
-  <div class="text-neutral-500">
+  <div class="text-neutral-600 dark:text-neutral-400">
     <div>{{ period.start }}</div>
     <div>{{ period.end }}</div>
   </div>

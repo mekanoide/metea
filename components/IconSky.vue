@@ -33,7 +33,7 @@ const icon = computed(() => {
 </script>
 
 <template>
-  <div :aria-label="props.data">
+  <div role="presentation">
     <Icon
       :name="icon.icon"
       size="48" />
