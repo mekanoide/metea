@@ -1,0 +1,50 @@
+[
+  {
+  "value": 0,
+  "label": "bajo"
+  },
+  {
+  "value": 1,
+  "label": "bajo"
+  },
+  {
+  "value": 2,
+  "label": "bajo"
+  },
+  {
+  "value": 3,
+  "label": "moderado"
+  },
+  {
+  "value": 4,
+  "label": "moderado"
+  },
+  {
+  "value": 5,
+  "label": "moderado"
+  },
+  {
+  "value": 6,
+  "label": "alto"
+  },
+  {
+  "value": 7,
+  "label": "alto"
+  },
+  {
+  "value": 8,
+  "label": "muy alto"
+  },
+  {
+  "value": 9,
+  "label": "muy alto"
+  },
+  {
+  "value": 10,
+  "label": "muy alto"
+  },
+  {
+  "value": 11,
+  "label": "extremo"
+  }
+]

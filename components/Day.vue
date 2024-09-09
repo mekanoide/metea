@@ -6,7 +6,7 @@ const props = defineProps<{
 
 <template>
   <details
-    class="py-6 border-t border-dashed border-neutral-400 dark:border-neutral-700 first:border-t-2 first:border-solid first:border-neutral-900 first:dark:border-neutral-200">
+    class="py-6 px-4 border-t border-dashed border-neutral-400 dark:border-neutral-700 first:border-t-2 first:border-solid first:border-neutral-900 first:dark:border-neutral-200 hover:bg-neutral-200 dark:hover:bg-neutral-800">
     <summary class="flex justify-between gap-4">
       <!-- Left block -->
       <div>
@@ -88,14 +88,16 @@ const props = defineProps<{
       <!-- {{ data }} -->
       <!-- {{ data.probPrecipitacion }} -->
       <!-- Right block -->
-      <div class="text-xl font-semibold">
-        <div class="text-red-700 dark:text-red-400">
+      <div class="">
+        <div class="text-red-700 dark:text-red-400 text-xl font-semibold">
           {{ data.temperatura.maxima }}°C
         </div>
-        <div class="text-sky-700 dark:text-sky-400">
+        <div class="text-sky-700 dark:text-sky-400 text-xl font-semibold">
           {{ data.temperatura.minima }}°C
         </div>
+        <div v-if="data.uvMax" class="text-right"><span class="text-neutral-600 dark:text-neutral-400">UV</span> {{ data.uvMax }}</div>
       </div>
     </summary>
+    <!-- {{ data }} -->
   </details>
 </template>
