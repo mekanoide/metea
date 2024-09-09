@@ -18,7 +18,13 @@ saveVisitedTown({
 pending.value = false
 
 useHead({
-  title: `Previsión para ${forecast.value?.town?.nombre} | Metea`
+  title: `Previsión para ${forecast.value?.town?.nombre} | Metea`,
+  meta: [
+    {
+      name: 'og:title',
+      content: `Previsión meteorológica para ${forecast.value?.town?.nombre}`
+    }
+  ]
 })
 </script>
 

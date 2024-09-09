@@ -11,13 +11,36 @@ export default defineNuxtConfig({
         {
           name: 'description',
           content:
-            'Previsión metereológica para España basada en la API de la Agencia Estatal de Meteorología.'
+            'Previsión metereológica para España basada en los datos de la Agencia Estatal de Meteorología.'
         },
         {
-          name: 'keywords'
+          name: 'keywords',
+          content:
+            'Previsión, meteorología, Tiempo, España, Lluvia, Nubosidad, Nieve, Viento, Clima, Humedad, Calor, Frío, Niebla, Calima'
+        },
+        {
+          name: 'og:title',
+          content: 'Metea | Previsión metereológica'
+        },
+        {
+          name: 'og:type',
+          content: 'website'
+        },
+        {
+          name: 'og:url',
+          content: 'https://metea.es'
+        },
+        {
+          name: 'og:description',
+          content:
+            'Previsión metereológica para España basada en los datos de la Agencia Estatal de Meteorología.'
+        },
+        {
+          name: 'og:image',
+          content: 'https://metea.es/og.jpg'
         },
         { name: 'author', content: 'mekanoide' },
-        { name: 'google-adsense-account', content: process.env.ADSENSE_ID },
+        { name: 'google-adsense-account', content: process.env.ADSENSE_ID }
       ],
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.svg' }],
       script: [

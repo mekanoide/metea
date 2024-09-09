@@ -1,4 +1,7 @@
 <script setup lang="ts">
+definePageMeta({
+  layout: 'home'
+})
 const { getVisitedTowns } = useVisitedTowns()
 
 const visitedTowns = getVisitedTowns()
@@ -9,7 +12,6 @@ useHead({
 </script>
 
 <template>
-  <h2 class="text-center mb-4">Previsión meteorológica para España con datos de la AEMET</h2>
   <Search />
   <div v-if="visitedTowns && visitedTowns.length > 0">
     <h2 class="text-center mt-6">Últimos vistos</h2>
