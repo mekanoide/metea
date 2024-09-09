@@ -88,14 +88,14 @@ const props = defineProps<{
       <!-- {{ data }} -->
       <!-- {{ data.probPrecipitacion }} -->
       <!-- Right block -->
-      <div class="">
+      <div class="text-right">
         <div class="text-red-700 dark:text-red-400 text-xl font-semibold">
           {{ data.temperatura.maxima }}°C
         </div>
         <div class="text-sky-700 dark:text-sky-400 text-xl font-semibold">
           {{ data.temperatura.minima }}°C
         </div>
-        <div v-if="data.uvMax" class="text-right"><span class="text-neutral-600 dark:text-neutral-400">UV</span> {{ data.uvMax }}</div>
+        <UvIndex v-if="data.uvMax" :data="data.uvMax" />
       </div>
     </summary>
     <!-- {{ data }} -->
