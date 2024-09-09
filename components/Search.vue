@@ -62,7 +62,7 @@ watch(searchQuery, () => {
         class="block border-t border-1 border-dashed border-neutral-300 first:border-0 cursor-pointer p-4 hover:bg-neutral-200 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:hover:text-neutral-50"
         role="button"
         @click.prevent="onNavigateToTown(town.id)">
-        <span class="font-semibold">{{ town.nombre }}</span>, {{ town.province }}
+        <span class="font-semibold">{{ town.nombre }}</span>, <span class="text-neutral-600 dark:text-neutral-400">{{ town.province }}</span>
       </li>
     </ul>
   </div>

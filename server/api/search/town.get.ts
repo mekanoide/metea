@@ -26,12 +26,36 @@ export default defineEventHandler((event) => {
     return txt.normalize('NFD').replace(/[\u0300-\u036f]/g, '') // Elimina acentos
   }
 
+  function sortByPopulation(list: Town[]) {
+    return list.sort((a, b) => {
+      const aPop: number = parseInt(a.num_hab)
+      const bPop: number = parseInt(b.num_hab)
+      if (aPop < bPop) return 1
+      if (aPop > bPop) return -1
+      return 0
+    })
+  }
+
   // Filter towns based on search term
-  const results: Town[] = towns.filter((town) =>
+  const startsWithResults: Town[] = towns.filter((town) =>
     normalizeText(town.nombre.toLowerCase()).startsWith(
       normalizeText(searchTerm.toLowerCase())
     )
   )
+
+  const startsWithSortedResults = sortByPopulation(startsWithResults)
+
+  // Filtrar los que contienen el término pero no empiezan con él
+  const includesResults: Town[] = towns.filter(
+    (town) =>
+      normalizeText(town.nombre.toLowerCase()).includes(
+        normalizeText(searchTerm.toLowerCase())
+      ) && !startsWithResults.includes(town)
+  )
+
+  const includesSortedResults = sortByPopulation(includesResults)
+
+  const results = [...startsWithSortedResults, ...includesSortedResults]
 
   // Add province name to each town
   results.forEach((town) => {
@@ -41,13 +65,6 @@ export default defineEventHandler((event) => {
     town.province = province?.nombre
   })
 
-  const sortedResults = results.sort((a, b) => {
-    const aPop: number = parseInt(a.num_hab)
-    const bPop: number = parseInt(b.num_hab)
-    if (aPop < bPop) return 1
-    if (aPop > bPop) return -1
-    return 0
-  })
   console.log('results', results)
-  return sortedResults
+  return results
 })

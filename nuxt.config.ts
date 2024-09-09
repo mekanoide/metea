@@ -59,13 +59,16 @@ export default defineNuxtConfig({
       ADSENSE_ID: process.env.ADSENSE_ID
     }
   },
-  modules: ['nuxt-time', '@nuxt/icon'],
+  modules: ['nuxt-time', '@nuxt/icon', '@nuxtjs/i18n'],
   css: ['@/styles/main.css'],
   postcss: {
     plugins: {
       tailwindcss: {},
       autoprefixer: {}
     }
+  },
+  i18n: {
+    vueI18n: '@/i18n.config.ts'
   },
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true }

@@ -92,7 +92,7 @@ const props = defineProps<{
         <div class="text-red-700 dark:text-red-400 text-xl font-semibold">
           {{ data.temperatura.maxima }}°C
         </div>
-        <div class="text-sky-700 dark:text-sky-400 text-xl font-semibold">
+        <div class="text-sky-700 dark:text-sky-400 text-xl font-semibold mb-1">
           {{ data.temperatura.minima }}°C
         </div>
         <UvIndex v-if="data.uvMax" :data="data.uvMax" />
