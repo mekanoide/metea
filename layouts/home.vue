@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-[90dvh] grid grid-rows-[auto_1fr_auto]">
     <header class="mb-4 grid justify-center">
-      <h1 class="mb-4">
+      <h1 class="flex mb-4 justify-center">
         <NuxtLink
           class="text-xl font-semibold"
           to="/"
@@ -9,7 +9,7 @@
           <MeteaIcon size="48" />
         </NuxtLink>
       </h1>
-      <h2 class="text-center mb-4">
+      <h2 class="text-center mb-4 text-balance">
         Previsión meteorológica para España con datos de la AEMET
       </h2>
     </header>

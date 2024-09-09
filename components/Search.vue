@@ -25,6 +25,12 @@ function onNavigateToTown(id: string) {
   navigateTo(`/forecast/${formattedId}`)
 }
 
+function onNavigateToFirstTown() {
+  if (searchResults.value.length > 0) {
+    onNavigateToTown(searchResults.value[0].id)
+  }
+}
+
 onClickOutside(resultsLayer, () => {
   searchResults.value = []
 })
@@ -45,7 +51,8 @@ watch(searchQuery, () => {
     <input
       type="search"
       placeholder="Buscar municipio..."
-      v-model="searchQuery" />
+      v-model="searchQuery"
+      @keyup.enter="onNavigateToFirstTown()" />
     <ul
       v-if="searchResults.length > 0"
       ref="resultsLayer"
