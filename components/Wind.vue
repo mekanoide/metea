@@ -16,21 +16,23 @@ function iconWindDirection(dir: string): string {
       return 'mdi:arrow-top-left'
     case 'S':
       return 'mdi:arrow-up'
-    case 'SW':
+    case 'SO':
       return 'mdi:arrow-top-right'
-    case 'W':
+    case 'O':
       return 'mdi:arrow-right'
-    case 'NW':
+    case 'NO':
       return 'mdi:arrow-bottom-right'
+    default:
+      return 'mdi:minus'
   }
 }
 </script>
 
 <template>
   <div
-    class="flex items-center"
+    class="flex items-center gap-1"
     aria-label="Viento">
-    <Icon name="mdi:weather-windy" />
-    {{ data.velocidad }} km/h  <Icon :name="iconWindDirection(data.direccion)" class="ml-2" /> {{ data.direccion }}
+    <Icon name="mdi:weather-windy" class="text-neutral-500" />
+    {{ data.velocidad }}km/h <span class="flex items-center"><span class="hidden sm:inline">{{ data.direccion }}</span><Icon :name="iconWindDirection(data.direccion)" class="ml-2" /></span>
   </div>
 </template>

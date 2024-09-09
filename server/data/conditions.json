@@ -1,0 +1,70 @@
+[
+  {
+    "description": "Despejado",
+    "icon": "fluent:weather-sunny-48-regular"
+  },
+  {
+    "description": "Intervalos nubosos",
+    "icon": "fluent:weather-partly-cloudy-day-48-regular"
+  },
+  {
+    "description": "Poco nuboso",
+    "icon": "fluent:weather-partly-cloudy-day-48-regular"
+  },
+  {
+    "description": "Nubes altas",
+    "icon": "fluent:weather-partly-cloudy-day-48-regular"
+  },
+  {
+    "description": "Nuboso",
+    "icon": "fluent:weather-cloudy-48-regular"
+  },
+  {
+    "description": "Muy nuboso",
+    "icon": "fluent:weather-cloudy-48-regular"
+  },
+  {
+    "description": "Cubierto",
+    "icon": "fluent:weather-cloudy-48-regular"
+  },
+  {
+    "description": "Intervalos nubosos con lluvia escasa",
+    "icon": "fluent:weather-rain-48-regular"
+  },
+  {
+    "description": "Intervalos nubosos con lluvia",
+    "icon": "fluent:weather-rain-48-regular"
+  },
+  {
+    "description": "Cubierto con lluvia escasa",
+    "icon": "fluent:weather-rain-48-regular"
+  },
+  {
+    "description": "Cubierto con lluvia",
+    "icon": "fluent:weather-rain-48-regular"
+  },
+  {
+    "description": "Nuboso con lluvia escasa",
+    "icon": "fluent:weather-rain-48-regular"
+  },
+  {
+    "description": "Nuboso con lluvia",
+    "icon": "fluent:weather-rain-48-regular"
+  },
+  {
+    "description": "Muy nuboso con lluvia escasa",
+    "icon": "fluent:weather-rain-48-regular"
+  },
+  {
+    "description": "Muy nuboso con lluvia",
+    "icon": "fluent:weather-rain-48-regular"
+  },
+  {
+    "description": "Cubierto con lluvia escasa",
+    "icon": "fluent:weather-rain-48-regular"
+  },
+  {
+    "description": "Cubierto con lluvia",
+    "icon": "fluent:weather-rain-48-regular"
+  }
+]

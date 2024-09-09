@@ -2,16 +2,11 @@
 const props = defineProps<{
   data: any
 }>()
-
-function normalizedPeriod(period: string) {
-  if (period === '00-12') return 'AM'
-  return 'PM'
-}
 </script>
 
 <template>
   <details
-    class="py-6 border-t border-dashed border-neutral-300 dark:border-neutral-700 first:border-t-2 first:border-solid first:border-neutral-700 dark:first:border-neutral-300">
+    class="py-6 border-t border-dashed border-neutral-400 dark:border-neutral-700 first:border-t-2 first:border-solid first:border-neutral-900 first:dark:border-neutral-200">
     <summary class="flex justify-between gap-4">
       <!-- Left block -->
       <div>
@@ -20,54 +15,80 @@ function normalizedPeriod(period: string) {
             :datetime="data.fecha"
             weekday="long"
             day="numeric"
-            month="short"
             locale="es" />
         </h2>
         <div
           v-if="data.estadoCielo.length > 1"
-          class="text-neutral-400">
-          <div v-if="data.estadoCielo[1].descripcion" class="flex items-center flex-wrap gap-x-6 gap-y-2">
+          class="grid gap-4">
+          <!-- First period -->
+          <div
+            v-if="data.estadoCielo[1].descripcion"
+            class="flex items-start flex-nowrap gap-x-4 gap-y-2">
             <!-- Period -->
-            {{ normalizedPeriod(data.estadoCielo[1].periodo) }}
-            <div class="flex items-center" aria-label="Estado del cielo">
-              {{ data.estadoCielo[1].descripcion }}
+            <Period :data="data.estadoCielo[1].periodo" />
+            <IconSky :data="data.estadoCielo[1].descripcion" />
+            <div
+              class="grid"
+              aria-label="Probabilidad de lluvia">
+              <div class="overflow-hidden text-ellipsis">
+                {{ data.estadoCielo[1].descripcion }}
+              </div>
+              <div class="flex items-center gap-4">
+                <!-- Rain -->
+                <ProbRain :data="data.probPrecipitacion[1].value" />
+                <!-- Wind -->
+                <Wind :data="data.viento[1]" />
+              </div>
             </div>
-            <!-- Precipitation -->
-            <div class="flex items-center" aria-label="Probabilidad de lluvia">
-              <Icon name="mdi:water" />
-              {{ data.probPrecipitacion[1].value }}%
-            </div>
-            <!-- Wind -->
-            <Wind :data="data.viento[1]" />
           </div>
-          <p>
+          <!-- Second period -->
+          <div
+            v-if="data.estadoCielo[2].descripcion"
+            class="flex items-start flex-nowrap gap-x-4 gap-y-2">
             <!-- Period -->
-            {{ normalizedPeriod(data.estadoCielo[2].periodo) }}
-            <!-- Sky -->
-            <span class="font-semibold">
+            <Period :data="data.estadoCielo[2].periodo" />
+            <IconSky :data="data.estadoCielo[2].descripcion" />
+            <div
+              class="grid"
+              aria-label="Probabilidad de lluvia">
               {{ data.estadoCielo[2].descripcion }}
-            </span>
-            <!-- Precipitation -->
-            <span>
-              <Icon name="mdi:water" />
-              {{ data.probPrecipitacion[2].value }}%
-            </span>
-            <!-- Wind -->
-            <Wind :data="data.viento[2]" />
-          </p>
+              <div class="flex items-center gap-4">
+                <!-- Rain -->
+                <ProbRain :data="data.probPrecipitacion[2].value" />
+                <!-- Wind -->
+                <Wind :data="data.viento[2]" />
+              </div>
+            </div>
+          </div>
         </div>
-        <p v-else>
-          {{ data.estadoCielo[0].periodo }}
-          <span class="font-semibold">{{
-            data.estadoCielo[0].descripcion
-          }}</span>
-          {{ data.probPrecipitacion[0].value }}%
-        </p>
+        <div v-else>
+          <!-- First period -->
+          <div
+            v-if="data.estadoCielo[0].descripcion"
+            class="flex items-start flex-nowrap gap-x-4 gap-y-2 text-pretty">
+            <!-- Period -->
+            <Period :data="data.estadoCielo[0].periodo" />
+            <IconSky :data="data.estadoCielo[0].descripcion" />
+            <div
+              class="grid"
+              aria-label="Probabilidad de lluvia">
+              <div class="overflow-hidden text-ellipsis">
+                {{ data.estadoCielo[0].descripcion }}
+              </div>
+              <div class="flex items-center gap-4">
+                <!-- Rain -->
+                <ProbRain :data="data.probPrecipitacion[0].value" />
+                <!-- Wind -->
+                <Wind :data="data.viento[0]" />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <!-- {{ data }} -->
       <!-- {{ data.probPrecipitacion }} -->
       <!-- Right block -->
-      <div class="text-2xl font-semibold">
+      <div class="text-xl font-semibold">
         <div class="text-red-700 dark:text-red-400">
           {{ data.temperatura.maxima }}°C
         </div>

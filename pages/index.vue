@@ -2,6 +2,10 @@
 const { getVisitedTowns } = useVisitedTowns()
 
 const visitedTowns = getVisitedTowns()
+
+useHead({
+  title: 'Metea | Previsión meteorológica para España'
+})
 </script>
 
 <template>

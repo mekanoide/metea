@@ -6,15 +6,16 @@ const pending = ref<boolean>(true)
 const forecast = ref<any>()
 const id = route.params.id as string
 
-
-onMounted(async () => {
-  pending.value = true
-  const { data } = await useFetch(`/api/forecast/town/${id}`)
-  forecast.value = data.value
-  console.log('forecast', forecast.value)
-  saveVisitedTown({ id: id, name: forecast.value.town.nombre, province: forecast.value.town.province.nombre })
-  pending.value = false
+pending.value = true
+const { data } = await useFetch(`/api/forecast/town/${id}`)
+forecast.value = data.value
+console.log('forecast', forecast.value)
+saveVisitedTown({
+  id: id,
+  name: forecast.value.town.nombre,
+  province: forecast.value.town.province.nombre
 })
+pending.value = false
 
 useHead({
   title: `Previsión para ${forecast.value?.town?.nombre} | Metea`
@@ -26,7 +27,9 @@ useHead({
   <article v-if="forecast">
     <TownInfo :data="forecast.town" />
     <div v-if="!pending">
-      <Day v-for="day in forecast.prediccion.dia" :data="day" />
+      <Day
+        v-for="day in forecast.prediccion.dia"
+        :data="day" />
     </div>
   </article>
 </template>

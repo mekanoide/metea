@@ -1,18 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
   @apply text-neutral-900 bg-neutral-200 mx-auto p-4 dark:bg-neutral-900 dark:text-neutral-200;
-  width: min(calc(100% - 1rem), 1024px);
+  width: min(calc(100% - 1rem), 820px);
 }
 
-input:is([type="text"], [type="search"], [type="url"], [type="email"], [type="password"]) {
+input:is(
+    [type='text'],
+    [type='search'],
+    [type='url'],
+    [type='email'],
+    [type='password']
+  ) {
   @apply bg-neutral-300 w-full p-4 dark:bg-neutral-800 placeholder:text-neutral-500 dark:placeholder:text-neutral-500;
 }
 
 @media (prefers-color-scheme: dark) {
-  input:is([type="text"], [type="search"], [type="url"], [type="email"], [type="password"]) {
+  input:is(
+      [type='text'],
+      [type='search'],
+      [type='url'],
+      [type='email'],
+      [type='password']
+    ) {
     @apply border-neutral-400;
   }
 }
