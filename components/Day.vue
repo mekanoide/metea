@@ -98,6 +98,6 @@ const props = defineProps<{
         <UvIndex v-if="data.uvMax" :data="data.uvMax" />
       </div>
     </summary>
-    {{ data }}
+    <!-- {{ data }} -->
   </details>
 </template>
