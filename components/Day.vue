@@ -26,7 +26,7 @@ const props = defineProps<{
             class="flex items-start flex-nowrap gap-x-4 gap-y-2">
             <!-- Period -->
             <Period :data="data.estadoCielo[1].periodo" />
-            <IconSky :data="data.estadoCielo[1].descripcion" />
+            <IconSky :data="data.estadoCielo[1].value" />
             <div
               class="grid"
               aria-label="Probabilidad de lluvia">
@@ -47,7 +47,7 @@ const props = defineProps<{
             class="flex items-start flex-nowrap gap-x-4 gap-y-2">
             <!-- Period -->
             <Period :data="data.estadoCielo[2].periodo" />
-            <IconSky :data="data.estadoCielo[2].descripcion" />
+            <IconSky :data="data.estadoCielo[2].value" />
             <div
               class="grid"
               aria-label="Probabilidad de lluvia">
@@ -68,7 +68,7 @@ const props = defineProps<{
             class="flex items-start flex-nowrap gap-x-4 gap-y-2 text-pretty">
             <!-- Period -->
             <Period :data="data.estadoCielo[0].periodo" />
-            <IconSky :data="data.estadoCielo[0].descripcion" />
+            <IconSky :data="data.estadoCielo[0].value" />
             <div
               class="grid"
               aria-label="Probabilidad de lluvia">
@@ -98,6 +98,6 @@ const props = defineProps<{
         <UvIndex v-if="data.uvMax" :data="data.uvMax" />
       </div>
     </summary>
-    <!-- {{ data }} -->
+    {{ data }}
   </details>
 </template>

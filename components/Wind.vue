@@ -31,11 +31,11 @@ function iconWindDirection(dir: string): string {
 <template>
   <div
     class="flex items-center gap-1"
-    aria-label="Viento">
+    aria-label="Viento"
+    title="Viento">
     <Icon
       name="mdi:weather-windy"
-      class="text-neutral-600 dark:text-neutral-400"
-      aria-label="Viento" />
+      class="text-neutral-600 dark:text-neutral-400" />
     <span
       v-if="data.velocidad > 0"
       class="flex items-center gap-1">

@@ -1,70 +1,177 @@
 [
   {
     "description": "Despejado",
+    "value": "11",
     "icon": "wi:day-sunny"
   },
   {
     "description": "Intervalos nubosos",
+    "value": "13",
     "icon": "wi:day-cloudy"
   },
   {
     "description": "Poco nuboso",
+    "value": "12",
     "icon": "wi:day-cloudy"
   },
   {
     "description": "Nubes altas",
+    "value": "17",
     "icon": "wi:day-cloudy-high"
   },
   {
     "description": "Nuboso",
+    "value": "14",
     "icon": "wi:cloudy"
   },
   {
     "description": "Muy nuboso",
+    "value": "15",
     "icon": "wi:cloudy"
   },
   {
     "description": "Cubierto",
+    "value": "16",
     "icon": "wi:cloudy"
   },
   {
     "description": "Intervalos nubosos con lluvia escasa",
+    "value": "43",
     "icon": "wi:day-showers"
   },
   {
     "description": "Intervalos nubosos con lluvia",
+    "value": "23",
     "icon": "wi:day-rain"
   },
   {
     "description": "Cubierto con lluvia escasa",
+    "value": "46",
     "icon": "wi:showers"
   },
   {
     "description": "Cubierto con lluvia",
+    "value": "26",
     "icon": "wi:rain"
   },
   {
     "description": "Nuboso con lluvia escasa",
+    "value": "44",
     "icon": "wi:showers"
   },
   {
     "description": "Nuboso con lluvia",
+    "value": "24",
     "icon": "wi:rain"
   },
   {
     "description": "Muy nuboso con lluvia escasa",
+    "value": "45",
     "icon": "wi:showers"
   },
   {
     "description": "Muy nuboso con lluvia",
+    "value": "25",
     "icon": "wi:rain"
   },
   {
     "description": "Cubierto con lluvia escasa",
+    "value": "46",
     "icon": "wi:showers"
   },
   {
     "description": "Cubierto con lluvia",
+    "value": "26",
     "icon": "wi:rain"
+  },
+  {
+    "description": "Intervalos nubosos con nieve escasa",
+    "value": "71",
+    "icon": "wi:day-snow"
+  },
+  {
+    "description": "Nuboso con nieve escasa",
+    "value": "72",
+    "icon": "wi:snow"
+  },
+  {
+    "description": "Muy nuboso con nieve escasa",
+    "value": "73",
+    "icon": "wi:snow"
+  },
+  {
+    "description": "Cubierto con nieve escasa",
+    "value": "74",
+    "icon": "wi:snow"
+  },
+  {
+    "description": "Intervalos nubosos con nieve",
+    "value": "33",
+    "icon": "wi:day-snow"
+  },
+  {
+    "description": "Nuboso con nieve",
+    "value": "34",
+    "icon": "wi:snow"
+  },
+  {
+    "description": "Muy nuboso con nieve",
+    "value": "35",
+    "icon": "wi:snow"
+  },
+  {
+    "description": "Cubierto con nieve",
+    "value": "36",
+    "icon": "wi:snow"
+  },
+  {
+    "description": "Intervalos nubosos con tormenta",
+    "value": "51",
+    "icon": "wi:day-thunderstorm"
+  },
+  {
+    "description": "Nuboso con tormenta",
+    "value": "52",
+    "icon": "wi:thunderstorm"
+  },
+  {
+    "description": "Muy nuboso con tormenta",
+    "value": "53",
+    "icon": "wi:thunderstorm"
+  },
+  {
+    "description": "Cubierto con tormenta",
+    "value": "54",
+    "icon": "wi:thunderstorm"
+  },
+  {
+    "description": "Intervalos nubosos con tormenta y lluvia escasa",
+    "value": "61",
+    "icon": "wi:day-storm-showers"
+  },
+  {
+    "description": "Nuboso con tormenta y lluvia escasa",
+    "value": "62",
+    "icon": "wi:storm-showers"
+  },
+  {
+    "description": "Muy nuboso con tormenta y lluvia escasa",
+    "value": "63",
+    "icon": "wi:storm-showers"
+  },
+  {
+    "description": "Cubierto con tormenta y lluvia escasa",
+    "value": "64",
+    "icon": "wi:storm-showers"
+  },
+  {
+    "description": "Niebla",
+    "value": "18",
+    "icon": "wi:fog"
+  },
+  {
+    "description": "Bruma",
+    "value": "82",
+    "icon": "wi:day-haze"
   }
 ]
