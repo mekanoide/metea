@@ -41,13 +41,13 @@ const formattedLongitude = computed(() => {
     </h1>
     <div class="flex gap-x-6 flex-wrap mb-4">
       <div>
-        Altitud: <span class="font-semibold">{{ props.data.altitud }}m</span>
-      </div>
-      <div>
         Latitud: <span class="font-semibold">{{ formattedLatitude }}</span>
       </div>
       <div>
         Longitud: <span class="font-semibold">{{ formattedLongitude }}</span>
+      </div>
+      <div>
+        Altitud: <span class="font-semibold">{{ props.data.altitud }}m</span>
       </div>
     </div>
     <div>
