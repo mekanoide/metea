@@ -7,7 +7,7 @@ const props = defineProps<{
 <template>
   <details
     class="appearance-none py-6 px-4 border-t border-dashed border-neutral-400 dark:border-neutral-700 first:border-t-2 first:border-solid first:border-neutral-900 first:dark:border-neutral-200 hover:bg-neutral-200 dark:hover:bg-neutral-800">
-    <summary class="flex gap-1">
+    <summary>
 			<div class="flex-1 flex justify-between gap-4">
 	      <!-- Left block -->
  		    <div>
