@@ -48,6 +48,11 @@ export default defineNuxtConfig({
           async: true,
           src: `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.ADSENSE_ID}`,
           crossorigin: 'anonymous'
+        },
+				{
+          defer: true,
+          'data-domain': process.env.PLAUSIBLE_DOMAIN,
+          src: process.env.PLAUSIBLE_APIHOST
         }
       ]
     }
