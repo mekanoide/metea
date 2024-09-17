@@ -1,7 +1,44 @@
 <script setup lang="ts">
+import colors from 'tailwindcss/colors'
 const props = defineProps<{
   data: any
 }>()
+
+/* const { data: sun } = await useFetch('/api/sun', {
+  query: {
+    lat: forecast.value.town.latitud_dec,
+    lng: forecast.value.town.longitud_dec
+  }
+}) */
+
+const precipitationData = computed(() => {
+  const precipitationValues = props.data.probPrecipitacion.map(
+    (d: any) => d.value
+  )
+  return precipitationValues.slice(3)
+})
+
+const chartData = computed(() => {
+  return {
+    labels: props.data.humedadRelativa.dato.map(
+      (item: any) => `${item.hora}:00`
+    ),
+    datasets: [
+      {
+        label: 'Humedad relativa (%)',
+        backgroundColor: colors.gray[500],
+        borderColor: colors.gray[500],
+        data: props.data.humedadRelativa.dato.map((d: any) => d.value)
+      },
+      {
+        label: 'Prob. precipitación (%)',
+        backgroundColor: colors.blue[500],
+        borderColor: colors.blue[500],
+        data: precipitationData.value
+      }
+    ]
+  }
+})
 </script>
 
 <template>
@@ -53,19 +90,29 @@ const props = defineProps<{
         <div class="text-xl font-semibold mb-3">
           {{ data.temperatura.minima }}°C
         </div>
+      </div>
+    </summary>
+    <div class="mt-6 flex gap-12 flex-wrap">
+      <div class="grid gap-2 content-start">
+        <div>
+          <span class="text-neutral-600 dark:text-neutral-400"
+            >Humedad relativa:</span
+          >
+          {{ data.humedadRelativa.minima }}%
+          <span class="text-neutral-600 dark:text-neutral-400">-</span>
+          {{ data.humedadRelativa.maxima }}%
+        </div>
         <UvIndex
           v-if="data.uvMax"
           :data="data.uvMax" />
       </div>
-    </summary>
-    <div class="mt-6">
-
-      Humedad relativa: {{ data.humedadRelativa.minima }}% -
-      {{ data.humedadRelativa.maxima }}%
-      <h3 class="font-semibold mb-2">Evolución</h3>
-      <LazyHumidityChart v-if="data.humedadRelativa.dato.length > 0" :data="data.humedadRelativa.dato" />
+      <div
+        v-if="data.humedadRelativa.dato.length > 0"
+        class="flex-1">
+        <h3 class="font-semibold mb-2">Evolución</h3>
+        <LazyHumidityChart :data="chartData" />
+      </div>
     </div>
-    {{ data }}
   </details>
 </template>
 

@@ -26,21 +26,18 @@ ChartJS.register(
   LinearScale
 )
 
-type humidityData = {
-  value: number
-  hora: number
+type ChartData = {
+  labels: string[]
+  datasets: object[]
 }
 
 const props = defineProps<{
-  data: humidityData[]
+  data: ChartData
 }>()
-
-const labels = props.data.map((item: any) => `${item.hora}:00`)
-const values = props.data.map((item: any) => item.value)
 
 const chartOptions = {
   responsive: true,
-  maintainAspectRatio: true,
+  maintainAspectRatio: false,
   scales: {
     y: {
       min: 0,
@@ -49,30 +46,13 @@ const chartOptions = {
   }
 }
 
-const chartData = {
-  labels: labels,
-  datasets: [
-    {
-      label: 'Humedad relativa',
-      backgroundColor: colors.gray[500],
-      borderColor: colors.gray[500],
-      data: values
-    },
-    {
-      label: 'Prob. precipitación',
-      backgroundColor: colors.blue[500],
-      borderColor: colors.blue[500],
-      data: values
-    }
-  ]
-}
 </script>
 
 <template>
   <div>
     <Line
       id="humidity-chart"
-      :data="chartData"
+      :data="props.data"
       :options="chartOptions" />
   </div>
 </template>

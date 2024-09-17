@@ -40,14 +40,17 @@ function iconWindDirection(dir: string): string {
     <span
       v-if="data.velocidad > 0"
       class="flex items-center gap-1">
-      {{ data.velocidad }}km/h
-      <span class="flex items-center">
+      <div>
+        {{ data.velocidad
+        }}<span class="text-neutral-600 dark:text-neutral-400">km/h</span>
+      </div>
+      <div class="flex items-center">
         <span class="hidden sm:inline">{{ data.direccion }}</span>
         <Icon
           :name="iconWindDirection(data.direccion)"
           class="ml-2"
           aria-hidden="true" />
-      </span>
+      </div>
     </span>
     <span v-else>-</span>
   </div>

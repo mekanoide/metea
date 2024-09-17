@@ -5,9 +5,9 @@ const props = defineProps<{
 }>()
 
 
-const title = computed(() => {
+const uvMeaning = computed(() => {
   const level = uv.find((item) => item.value === props.data)
-  return `Índice ultravioleta ${level?.label}`
+  return level?.label
 })
 
 const uvColor = computed(() => {
@@ -27,9 +27,8 @@ const uvColor = computed(() => {
 
 <template>
   <div
-    class="text-right flex gap-1 justify-end"
-    :title="title">
-    <span class="text-neutral-600 dark:text-neutral-400">UV</span>
-    <span :class="uvColor" class=" font-semibold text-neutral-50 dark:text-neutral-950 px-1 rounded-sm">{{ data }}</span>
+    class="text-right flex gap-1">
+    <span class="text-neutral-600 dark:text-neutral-400">Índice UV:</span>
+    <span :class="uvColor" class=" font-semibold text-neutral-50 dark:text-neutral-950 px-1 rounded-sm">{{ data }} ({{ uvMeaning }})</span>
   </div>
 </template>

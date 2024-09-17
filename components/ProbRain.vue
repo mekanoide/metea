@@ -5,10 +5,14 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div class="flex items-center gap-1" title="Probabilidad de precipitación">
+  <div
+    class="flex items-center gap-1"
+    title="Probabilidad de precipitación">
     <Icon
       name="mdi:water"
       class="text-neutral-600 dark:text-neutral-400" />
-    <span>{{ data }}%</span>
+    <div>
+      {{ data }}<span class="text-neutral-600 dark:text-neutral-400">%</span>
+    </div>
   </div>
 </template>
