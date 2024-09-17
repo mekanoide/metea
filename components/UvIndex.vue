@@ -4,17 +4,6 @@ const props = defineProps<{
   data: number
 }>()
 
-const alert = computed(() => {
-  if (props.data < 6) {
-    return
-  } else if (props.data >= 11) {
-    return '!!!'
-  } else if (props.data >= 8) {
-    return '!!'
-  } else {
-    return '!'
-  }
-})
 
 const title = computed(() => {
   const level = uv.find((item) => item.value === props.data)
@@ -31,7 +20,7 @@ const uvColor = computed(() => {
   } else if (props.data < 11) {
     return 'text-red-600 dark:text-red-400'
   } else {
-    return 'text-red-600 dark:text-red-400'
+    return 'text-purple-600 dark:text-purple-400'
   }
 })
 </script>
@@ -41,6 +30,6 @@ const uvColor = computed(() => {
     class="text-right flex gap-1 justify-end"
     :title="title">
     <span class="text-neutral-600 dark:text-neutral-400">UV</span>
-    <span>{{ data }}{{ alert }}</span>
+    <span :class="uvColor" class=" font-semibold text-neutral-50 dark:text-neutral-950 px-1 rounded-sm">{{ data }}</span>
   </div>
 </template>

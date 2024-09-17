@@ -1,100 +1,80 @@
 <script setup lang="ts">
 const props = defineProps<{
-  data: any;
-}>();
+  data: any
+}>()
 </script>
 
 <template>
   <details
-    class="py-6 px-4 border-t border-dashed border-neutral-400 dark:border-neutral-700 first:border-t-2 first:border-solid first:border-neutral-900 first:dark:border-neutral-200 hover:bg-neutral-200 dark:hover:bg-neutral-800"
-  >
-    <summary class="flex justify-between gap-4 appearance">
+    class="py-6 px-4 border-t border-dashed border-neutral-400 dark:border-neutral-700 first:border-t-2 first:border-solid first:border-neutral-900 first:dark:border-neutral-200 hover:bg-neutral-200 dark:hover:bg-neutral-800">
+    <summary class="flex justify-between gap-4">
       <!-- Left block -->
       <div>
-        <h2 class="text-xl font-semibold first-letter:capitalize mb-2">
-          <NuxtTime
-            :datetime="data.fecha"
-            weekday="long"
-            day="numeric"
-            locale="es"
-          />
-        </h2>
-        <div v-if="data.estadoCielo.length > 1" class="grid gap-4">
+        <div class="flex items-center gap-2 mb-4">
+          <Icon
+            class="chevron text-neutral-600 dark:text-neutral-400"
+            name="mdi:chevron-down"
+            size="24" />
+          <h2 class="text-xl font-semibold first-letter:capitalize">
+            <NuxtTime
+              :datetime="data.fecha"
+              weekday="long"
+              day="numeric"
+              locale="es" />
+          </h2>
+        </div>
+        <div
+          v-if="data.estadoCielo.length > 1"
+          class="grid gap-4">
           <!-- First period -->
-          <div
-            v-if="data.estadoCielo[1].descripcion"
-            class="flex items-start flex-nowrap gap-x-4 gap-y-2"
-          >
-            <!-- Period -->
-            <Period :data="data.estadoCielo[1].periodo" />
-            <IconSky :data="data.estadoCielo[1].value" />
-            <div class="grid" aria-label="Probabilidad de lluvia">
-              <div class="overflow-hidden text-ellipsis">
-                {{ data.estadoCielo[1].descripcion }}
-              </div>
-              <div class="flex items-center gap-4">
-                <!-- Rain -->
-                <ProbRain :data="data.probPrecipitacion[1].value" />
-                <!-- Wind -->
-                <Wind :data="data.viento[1]" />
-              </div>
-            </div>
-          </div>
+          <Period
+            :sky="data.estadoCielo[1]"
+            :precipitation="data.probPrecipitacion[1]"
+            :wind="data.viento[1]" />
           <!-- Second period -->
-          <div
-            v-if="data.estadoCielo[2].descripcion"
-            class="flex items-start flex-nowrap gap-x-4 gap-y-2"
-          >
-            <!-- Period -->
-            <Period :data="data.estadoCielo[2].periodo" />
-            <IconSky :data="data.estadoCielo[2].value" />
-            <div class="grid" aria-label="Probabilidad de lluvia">
-              {{ data.estadoCielo[2].descripcion }}
-              <div class="flex items-center gap-4">
-                <!-- Rain -->
-                <ProbRain :data="data.probPrecipitacion[2].value" />
-                <!-- Wind -->
-                <Wind :data="data.viento[2]" />
-              </div>
-            </div>
-          </div>
+          <Period
+            :sky="data.estadoCielo[2]"
+            :precipitation="data.probPrecipitacion[2]"
+            :wind="data.viento[2]" />
         </div>
         <div v-else>
+          <Period
+            :sky="data.estadoCielo[0]"
+            :precipitation="data.probPrecipitacion[0]"
+            :wind="data.viento[0]" />
           <!-- First period -->
-          <div
-            v-if="data.estadoCielo[0].descripcion"
-            class="flex items-start flex-nowrap gap-x-4 gap-y-2 text-pretty"
-          >
-            <!-- Period -->
-            <Period :data="data.estadoCielo[0].periodo" />
-            <IconSky :data="data.estadoCielo[0].value" />
-            <div class="grid" aria-label="Probabilidad de lluvia">
-              <div class="overflow-hidden text-ellipsis">
-                {{ data.estadoCielo[0].descripcion }}
-              </div>
-              <div class="flex items-center gap-4">
-                <!-- Rain -->
-                <ProbRain :data="data.probPrecipitacion[0].value" />
-                <!-- Wind -->
-                <Wind :data="data.viento[0]" />
-              </div>
-            </div>
-          </div>
         </div>
       </div>
       <!-- {{ data }} -->
       <!-- {{ data.probPrecipitacion }} -->
       <!-- Right block -->
       <div class="text-right">
-        <div class="text-red-700 dark:text-red-400 text-xl font-semibold">
-          {{ data.temperatura.maxima }}°C
-        </div>
-        <div class="text-sky-700 dark:text-sky-400 text-xl font-semibold mb-1">
+        <div class="text-xl font-semibold">{{ data.temperatura.maxima }}°C</div>
+        <div class="text-xl font-semibold mb-3">
           {{ data.temperatura.minima }}°C
         </div>
-        <UvIndex v-if="data.uvMax" :data="data.uvMax" />
+        <UvIndex
+          v-if="data.uvMax"
+          :data="data.uvMax" />
       </div>
     </summary>
-    <!-- {{ data }} -->
+    <div class="mt-6">
+
+      Humedad relativa: {{ data.humedadRelativa.minima }}% -
+      {{ data.humedadRelativa.maxima }}%
+      <h3 class="font-semibold mb-2">Evolución</h3>
+      <LazyHumidityChart v-if="data.humedadRelativa.dato.length > 0" :data="data.humedadRelativa.dato" />
+    </div>
+    {{ data }}
   </details>
 </template>
+
+<style scoped>
+.chevron {
+  transition: all 0.2s ease-in-out;
+}
+
+details[open] .chevron {
+  rotate: 180deg;
+}
+</style>

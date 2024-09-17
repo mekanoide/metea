@@ -9,6 +9,7 @@ const id = route.params.id as string
 pending.value = true
 const { data } = await useFetch(`/api/forecast/town/${id}`)
 forecast.value = data.value
+
 console.log('forecast', forecast.value)
 saveVisitedTown({
   id: id,

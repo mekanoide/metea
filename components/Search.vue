@@ -3,7 +3,7 @@ import { onClickOutside } from '@vueuse/core'
 
 const searchQuery = ref('')
 const searchResults = ref<any>([])
-const resultsLayer = ref<HTMLElement | null>(null)
+const searchElement = ref<HTMLElement | null>(null)
 const selectedIndex = ref(0)
 
 async function onSearch() {
@@ -38,7 +38,10 @@ function onNavigateToSelectedTown() {
 }
 
 function onSelectNextTown() {
-  if (searchResults.value.length > 0 && selectedIndex.value < searchResults.value.length - 1) {
+  if (
+    searchResults.value.length > 0 &&
+    selectedIndex.value < searchResults.value.length - 1
+  ) {
     selectedIndex.value++
   }
 }
@@ -49,7 +52,7 @@ function onSelectPreviousTown() {
   }
 }
 
-onClickOutside(resultsLayer, () => {
+onClickOutside(searchElement, () => {
   reset()
 })
 
@@ -65,7 +68,9 @@ watch(searchQuery, () => {
 </script>
 
 <template>
-  <div class="grid relative">
+  <div
+    class="grid relative"
+    ref="searchElement">
     <input
       type="search"
       placeholder="Buscar municipio..."
@@ -76,15 +81,21 @@ watch(searchQuery, () => {
       @keyup.escape="reset()" />
     <ul
       v-if="searchResults.length > 0"
-      ref="resultsLayer"
       class="absolute z-50 top-16 left-0 right-0 shadow-2xl bg-neutral-100 max-h-[66dvh] overflow-y-auto dark:bg-neutral-800 dark:text-neutral-200">
       <li
         v-for="(town, index) in searchResults"
         class="block border-t border-1 border-dashed border-neutral-300 first:border-0 cursor-pointer p-4 hover:bg-neutral-200 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:hover:text-neutral-50"
-        :class="{ 'bg-neutral-200 dark:bg-neutral-700 dark:text-neutral-50': selectedIndex === index }"
+        :class="{
+          'bg-neutral-200 dark:bg-neutral-700 dark:text-neutral-50':
+            selectedIndex === index
+        }"
         role="button"
         @click.prevent="onNavigateToTown(town.id)">
-        <span class="font-semibold">{{ town.nombre }}</span>, <span class="text-neutral-600 dark:text-neutral-400">{{ town.province }}</span>
+        <span class="font-semibold">{{ town.nombre }}</span
+        >,
+        <span class="text-neutral-600 dark:text-neutral-400">{{
+          town.province
+        }}</span>
       </li>
     </ul>
   </div>

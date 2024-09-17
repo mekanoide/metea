@@ -1,23 +1,32 @@
 <script setup lang="ts">
-const props = defineProps<{
-  data?: string
-}>()
+import type { Sky, Wind, Precipitation } from '@/types/weather'
 
-const period = computed(() => {
-  switch (props.data) {
-    case '00-12':
-      return { start: '00', end: '12' }
-    case '12-24':
-      return { start: '12', end: '24' }
-    default:
-      return { start: '00', end: '24' }
-  }
-})
+const props = defineProps<{
+  sky: Sky
+  precipitation: Object
+  wind: Wind
+}>()
 </script>
 
 <template>
-  <div class="text-neutral-600 dark:text-neutral-400">
-    <div>{{ period.start }}</div>
-    <div>{{ period.end }}</div>
+  <div
+    v-if="sky.descripcion"
+    class="flex items-start flex-nowrap gap-x-4 gap-y-2 text-pretty">
+    <!-- Period -->
+    <PeriodTitle :data="sky.periodo" />
+    <IconSky :data="sky.value" />
+    <div
+      class="grid"
+      aria-label="Probabilidad de lluvia">
+      <div class="overflow-hidden text-ellipsis">
+        {{ sky.descripcion }}
+      </div>
+      <div class="flex items-center gap-4">
+        <!-- Rain -->
+        <ProbRain :data="precipitation.value" />
+        <!-- Wind -->
+        <Wind :data="wind" />
+      </div>
+    </div>
   </div>
 </template>

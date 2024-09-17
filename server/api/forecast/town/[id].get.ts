@@ -1,4 +1,3 @@
-import { useFetch } from 'nuxt/app'
 import towns from '@/server/data/towns.json'
 import provinces from '@/server/data/provinces.json'
 
