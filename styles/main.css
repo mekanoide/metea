@@ -23,7 +23,7 @@ input:is(
     [type='email'],
     [type='password']
   ) {
-  @apply bg-neutral-300 w-full p-4 dark:bg-neutral-800 placeholder:text-neutral-500 dark:placeholder:text-neutral-500 focus:outline focus:outline-neutral-800 dark:focus:outline-neutral-200;
+  @apply bg-neutral-300 w-full p-4 dark:bg-neutral-800 placeholder:text-neutral-500 dark:placeholder:text-neutral-500 focus:outline focus:outline-neutral-800 dark:focus:outline-neutral-200 rounded-md;
 }
 
 details summary::-webkit-details-marker {

@@ -43,15 +43,11 @@ const chartData = computed(() => {
 
 <template>
   <details
-    class="py-6 px-4 border-t border-dashed border-neutral-400 dark:border-neutral-700 first:border-t-2 first:border-solid first:border-neutral-900 first:dark:border-neutral-200 hover:bg-neutral-200 dark:hover:bg-neutral-800">
-    <summary class="flex justify-between gap-4">
+    class="py-6 border-t border-dashed border-neutral-400 dark:border-neutral-700 first:border-t-2 first:border-solid first:border-neutral-900 first:dark:border-neutral-200">
+    <summary class="group flex justify-between gap-4">
       <!-- Left block -->
       <div>
         <div class="flex items-center gap-2 mb-4">
-          <Icon
-            class="chevron text-neutral-600 dark:text-neutral-400"
-            name="mdi:chevron-down"
-            size="24" />
           <h2 class="text-xl font-semibold first-letter:capitalize">
             <NuxtTime
               :datetime="data.fecha"
@@ -59,16 +55,36 @@ const chartData = computed(() => {
               day="numeric"
               locale="es" />
           </h2>
+          <Icon
+            class="chevron text-neutral-500 group-hover:text-neutral-900 dark:group-hover:text-neutral-100"
+            name="mdi:chevron-down"
+            size="24" />
         </div>
         <div
-          v-if="data.estadoCielo.length > 1"
+          v-if="data.estadoCielo.length === 7"
           class="grid gap-4">
-          <!-- First period -->
+          <Period
+            :sky="data.estadoCielo[3]"
+            :precipitation="data.probPrecipitacion[3]"
+            :wind="data.viento[3]" />
+          <Period
+            :sky="data.estadoCielo[4]"
+            :precipitation="data.probPrecipitacion[4]"
+            :wind="data.viento[4]" />
+          <Period
+            :sky="data.estadoCielo[5]"
+            :precipitation="data.probPrecipitacion[5]"
+            :wind="data.viento[5]" />
+          <Period
+            :sky="data.estadoCielo[6]"
+            :precipitation="data.probPrecipitacion[6]"
+            :wind="data.viento[6]" />
+        </div>
+        <div v-else-if="data.probPrecipitacion.length === 3">
           <Period
             :sky="data.estadoCielo[1]"
             :precipitation="data.probPrecipitacion[1]"
             :wind="data.viento[1]" />
-          <!-- Second period -->
           <Period
             :sky="data.estadoCielo[2]"
             :precipitation="data.probPrecipitacion[2]"
@@ -79,10 +95,10 @@ const chartData = computed(() => {
             :sky="data.estadoCielo[0]"
             :precipitation="data.probPrecipitacion[0]"
             :wind="data.viento[0]" />
-          <!-- First period -->
         </div>
       </div>
       <!-- {{ data }} -->
+      <!-- {{ data.estadoCielo.length }} -->
       <!-- {{ data.probPrecipitacion }} -->
       <!-- Right block -->
       <div class="text-right">
@@ -90,28 +106,49 @@ const chartData = computed(() => {
         <div class="text-xl font-semibold mb-3">
           {{ data.temperatura.minima }}°C
         </div>
-      </div>
-    </summary>
-    <div class="mt-6 flex gap-12 flex-wrap">
-      <div class="grid gap-2 content-start">
-        <div>
-          <span class="text-neutral-600 dark:text-neutral-400"
-            >Humedad relativa:</span
-          >
-          {{ data.humedadRelativa.minima }}%
-          <span class="text-neutral-600 dark:text-neutral-400">-</span>
-          {{ data.humedadRelativa.maxima }}%
-        </div>
         <UvIndex
           v-if="data.uvMax"
           :data="data.uvMax" />
       </div>
-      <div
+    </summary>
+    <div class="mt-8 grid gap-8">
+      <div>
+        <h2 class="mb-2">Salida y puesta del sol</h2>
+        <SunInfo :data="data.sunInfo" />
+      </div>
+      <div class="grid gap-2 content-start">
+        <DataField class="flex">
+          Humedad relativa:
+          <span class="text-neutral-900 dark:text-neutral-100 font-semibold">{{
+            data.humedadRelativa.minima
+          }}</span
+          >% -
+          <span class="text-neutral-900 dark:text-neutral-100 font-semibold">{{
+            data.humedadRelativa.maxima
+          }}</span
+          >%
+        </DataField>
+        <DataField v-if="data.rachaMax[0].value">
+          Rachas máximas:
+          <Value>{{ data.rachaMax[0].value }}</Value
+          >km/h
+        </DataField>
+      </div>
+<!--       <DataField>
+        Duración del día:
+        <Value>
+          {{ turnTimeto24HourFormat(data.sunInfo.day_length) }}
+        </Value>
+        horas
+      </DataField>
+      {{ data.sunInfo }} -->
+
+      <!--       <div
         v-if="data.humedadRelativa.dato.length > 0"
         class="flex-1">
         <h3 class="font-semibold mb-2">Evolución</h3>
         <LazyHumidityChart :data="chartData" />
-      </div>
+      </div> -->
     </div>
   </details>
 </template>

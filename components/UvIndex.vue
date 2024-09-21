@@ -4,7 +4,6 @@ const props = defineProps<{
   data: number
 }>()
 
-
 const uvMeaning = computed(() => {
   const level = uv.find((item) => item.value === props.data)
   return level?.label
@@ -19,16 +18,18 @@ const uvColor = computed(() => {
     return 'text-orange-600 dark:text-orange-400'
   } else if (props.data < 11) {
     return 'text-red-600 dark:text-red-400'
-  } else {
+  } else if (props.data >= 11) {
     return 'text-purple-600 dark:text-purple-400'
   }
 })
 </script>
 
 <template>
-  <div
-    class="text-right flex gap-1">
-    <span class="text-neutral-600 dark:text-neutral-400">Índice UV:</span>
-    <span :class="uvColor" class=" font-semibold text-neutral-50 dark:text-neutral-950 px-1 rounded-sm">{{ data }} ({{ uvMeaning }})</span>
+  <div class="flex gap-1 justify-end" :title="`Índice UV máximo ${uvMeaning}`" :class="uvColor">
+    <span>UV</span>
+    <span
+      class="font-semibold">
+      {{ data }}
+    </span>
   </div>
 </template>

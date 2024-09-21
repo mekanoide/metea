@@ -2,28 +2,40 @@
 const route = useRoute()
 const { saveVisitedTown } = useVisitedTowns()
 
-const pending = ref<boolean>(true)
-const forecast = ref<any>()
 const id = route.params.id as string
 
-pending.value = true
-const { data } = await useFetch(`/api/forecast/town/${id}`)
-forecast.value = data.value
+/*
+ * Fetch town forecast
+ */
+const { data: forecastData, status: forecastStatus } = await useAsyncData(
+  'forecast',
+  () => {
+    return $fetch(`/api/forecast/town/${id}`)
+  }
+)
 
-console.log('forecast', forecast.value)
+const town = forecastData.value.town
+const forecast = forecastData.value
+
+/* const forecast = forecastData.value.map((item, index) => {
+  return { ...item, ...sunData.value[index] }
+})
+ */
+/*
+ * Save visited town
+ */
 saveVisitedTown({
   id: id,
-  name: forecast.value.town.nombre,
-  province: forecast.value.town.province.nombre
+  name: forecastData.value.town.nombre,
+  province: forecastData.value.town.province.nombre
 })
-pending.value = false
 
 useHead({
-  title: `Previsión para ${forecast.value?.town?.nombre} | Metea`,
+  title: `Previsión para ${forecastData.value?.town?.nombre} | Metea`,
   meta: [
     {
       name: 'og:title',
-      content: `Previsión meteorológica para ${forecast.value?.town?.nombre}`
+      content: `Previsión meteorológica para ${forecastData.value?.town?.nombre}`
     }
   ]
 })
@@ -31,12 +43,15 @@ useHead({
 
 <template>
   <Search />
-  <article v-if="forecast">
-    <TownInfo :data="forecast.town" />
-    <div v-if="!pending">
-      <Day
-        v-for="day in forecast.prediccion.dia"
-        :data="day" />
-    </div>
+  <article v-if="forecastStatus === 'success'">
+    <TownInfo :data="town" />
+    <Day
+      v-for="day in forecast.prediccion.dia"
+      :data="day" />
+    <!--     {{ forecast }}
+    Días: {{ forecast.prediccion.dia.length }}
+    <div v-for="day in forecast.prediccion.dia">{{ day.fecha }}</div>
+ -->
   </article>
+  <Spinner v-else />
 </template>
