@@ -46,17 +46,16 @@ const dayLengthPercent = computed(() => {
         <Value> {{ sunset }} </Value>
       </DataField>
     </div>
-    <div class="relative w-full h-8 bg-neutral-300 dark:bg-neutral-700 rounded-md">
+    <div
+      class="relative w-full h-8 bg-neutral-300 dark:bg-neutral-700 rounded-md">
       <div
-        class="absolute flex justify-center items-center top-0 h-full bg-amber-500 dark:bg-amber-400 rounded-md"
+        class="absolute flex justify-center items-center gap-1 top-0 h-full bg-amber-500 text-neutral-800 rounded-sm"
         :style="`left: ${dayStartPercent}%; width: ${
           dayEndPercent - dayStartPercent
-        }%`">
-        <DataField
-          aria-label="Duración del día"
-          title="Duración del día">
-          <Value>{{ dayLength }}</Value> horas
-        </DataField>
+        }%`"
+        aria-label="Duración del día"
+        title="Duración del día">
+        <span class="font-semibold">{{ dayLength }}</span> horas
       </div>
     </div>
   </div>
