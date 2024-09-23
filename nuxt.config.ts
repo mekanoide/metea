@@ -6,21 +6,16 @@ export default defineNuxtConfig({
       htmlAttrs: { lang: 'es' },
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
-      title: 'Metea | Previsión metereológica',
+      title: 'Metea - Previsión metereológica para tu ciudad',
       meta: [
         {
           name: 'description',
           content:
-            'Previsión metereológica para España basada en los datos de la Agencia Estatal de Meteorología.'
-        },
-        {
-          name: 'keywords',
-          content:
-            'Previsión, meteorología, Tiempo, España, Lluvia, Nubosidad, Nieve, Viento, Clima, Humedad, Calor, Frío, Niebla, Calima'
+            'Previsión metereológica para España basada en los datos actualizados de la Agencia Estatal de Meteorología.'
         },
         {
           name: 'og:title',
-          content: 'Metea | Previsión metereológica'
+          content: 'Metea - Previsión metereológica para tu ciudad'
         },
         {
           name: 'og:type',
@@ -33,7 +28,7 @@ export default defineNuxtConfig({
         {
           name: 'og:description',
           content:
-            'Previsión metereológica para España basada en los datos de la Agencia Estatal de Meteorología.'
+            'Previsión metereológica para España basada en los datos actualizados de la Agencia Estatal de Meteorología.'
         },
         {
           name: 'og:image',
