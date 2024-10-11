@@ -35,7 +35,7 @@ useHead({
   meta: [
     {
       name: 'og:title',
-      content: `Previsión meteorológica para ${forecastData.value?.town?.nombre}`
+      content: `Previsión para ${forecastData.value?.town?.nombre}`
     }
   ]
 })

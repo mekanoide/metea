@@ -1,6 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   ssr: true,
+  future: { compatibilityVersion: 4 },
   app: {
     head: {
       htmlAttrs: { lang: 'es' },
@@ -44,7 +45,7 @@ export default defineNuxtConfig({
           src: `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.ADSENSE_ID}`,
           crossorigin: 'anonymous'
         },
-				{
+        {
           defer: true,
           'data-domain': process.env.PLAUSIBLE_DOMAIN,
           src: process.env.PLAUSIBLE_APIHOST
@@ -60,7 +61,7 @@ export default defineNuxtConfig({
     }
   },
   modules: ['nuxt-time', '@nuxt/icon', '@nuxtjs/i18n'],
-  css: ['@/styles/main.css'],
+  css: ['@/assets/styles/main.css'],
   postcss: {
     plugins: {
       tailwindcss: {},
@@ -68,7 +69,7 @@ export default defineNuxtConfig({
     }
   },
   i18n: {
-    vueI18n: '@/i18n.config.ts'
+    vueI18n: '@@/i18n.config.ts'
   },
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true }

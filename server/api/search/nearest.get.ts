@@ -1,4 +1,4 @@
-import towns from '@/server/data/towns.json' // Asumiendo que tienes un archivo JSON con los municipios
+import towns from '@@/server/data/towns.json' // Asumiendo que tienes un archivo JSON con los municipios
 
 export default defineEventHandler(async (event) => {
   const query = getQuery(event)

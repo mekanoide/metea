@@ -30,7 +30,7 @@ const formattedLongitude = computed(() => {
 <template>
   <div class="py-6">
     <h1 class="flex gap-x-4 mb-2 items-baseline justify-start flex-wrap">
-      <span class="text-3xl font-semibold text-ellipsis">{{
+      <span class="text-3xl md:text-4xl font-semibold text-ellipsis">{{
         props.data.nombre
       }}</span>
       <span

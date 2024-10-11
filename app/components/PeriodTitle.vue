@@ -24,8 +24,9 @@ const period = computed(() => {
 </script>
 
 <template>
-  <div class="text-neutral-600 dark:text-neutral-400">
+  <div class="text-neutral-600 dark:text-neutral-400 flex md:block">
     <div>{{ period.start }}<span class="hidden md:inline">:00</span></div>
+    <div class="text-center md:hidden">-</div>
     <div>{{ period.end }}<span class="hidden md:inline">:00</span></div>
   </div>
 </template>

@@ -1,6 +1,6 @@
-import towns from '@/server/data/towns.json'
-import provinces from '@/server/data/provinces.json'
-import { Town } from '@/types/town'
+import towns from '@@/server/data/towns.json'
+import provinces from '@@/server/data/provinces.json'
+import { Town } from '@@/types/town'
 
 export default defineEventHandler(async (event: any) => {
   type Sun = {

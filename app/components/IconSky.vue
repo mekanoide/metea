@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import conditions from '@/server/data/conditions.json'
+import conditions from '@/data/conditions.json'
 
 const props = defineProps<{
   data: string
@@ -12,9 +12,9 @@ const icon = computed(() => {
 </script>
 
 <template>
-  <div role="presentation">
-    <Icon
-      :name="icon.icon"
-      size="48" />
-  </div>
+  <Icon
+    aria-hidden="true"
+    :name="icon.icon"
+    size="48" />
 </template>
+

@@ -1,5 +1,5 @@
-import towns from '@/server/data/towns.json' // Asumiendo que tienes un archivo JSON con los municipios
-import provinces from '@/server/data/provinces.json'
+import towns from '@@/server/data/towns.json' // Asumiendo que tienes un archivo JSON con los municipios
+import provinces from '@@/server/data/provinces.json'
 
 export default defineEventHandler(async (event: any) => {
   type Sun = {

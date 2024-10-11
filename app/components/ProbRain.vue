@@ -10,7 +10,9 @@ const props = defineProps<{
     title="Probabilidad de precipitación"
     aria-label="Probabilidad de precipitación">
     <Icon name="mdi:water" aria-hidden="true" />
-    <Value>{{ data }}</Value
-    >%
+    <span>
+      <Value>{{ data }}</Value
+      ><Unit>%</Unit>
+    </span>
   </DataField>
 </template>
