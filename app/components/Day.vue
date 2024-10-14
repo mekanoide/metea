@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import colors from "tailwindcss/colors"
+import colors, { sky } from "tailwindcss/colors"
 import uv from "@/data/uv.json"
 const props = defineProps<{
   data: any
@@ -48,6 +48,16 @@ const chartData = computed(() => {
     ]
   }
 })
+
+const sky = computed(() => {
+  const period = props.data.estadoCielo[0].value
+    ? props.data.estadoCielo[0]
+    : props.data.estadoCielo.find((d: any) => d.value)
+  return {
+    value: period.value,
+    description: period.description
+  }
+})
 </script>
 
 <template>
@@ -62,11 +72,8 @@ const chartData = computed(() => {
       <!-- Right block -->
       <div class="flex gap-6 items-center justify-self-end">
         <!-- TODO: alerts and warnings -->
-        <div
-          :aria-label="data.estadoCielo[0].descripcion"
-          :title="data.estadoCielo[0].descripcion"
-        >
-          <IconSky :data="data.estadoCielo[0].value" />
+        <div :aria-label="sky.description" :title="sky.description">
+          <IconSky :data="sky.value" />
         </div>
         <div
           class="w-16 text-right"
