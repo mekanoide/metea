@@ -1,28 +1,28 @@
 <script setup lang="ts">
-import type { Town } from '@/types/town'
+import type { Town } from "@@/types/town"
 
 const props = defineProps<{
   data: Town
 }>()
 
 const normalizedPopulation = computed(() => {
-  return Intl.NumberFormat('es-ES', {
-    notation: 'standard',
+  return Intl.NumberFormat("es-ES", {
+    notation: "standard",
     maximumFractionDigits: 0
   }).format(props.data.num_hab)
 })
 
 const formattedLatitude = computed(() => {
   const latitude = `${props.data.latitud.split("'")[0]}'`
-  const hemisphere = latitude[0] === '-' ? 'S' : 'N'
+  const hemisphere = latitude[0] === "-" ? "S" : "N"
   return `${latitude}${hemisphere}`
 })
 
 const formattedLongitude = computed(() => {
   const longitude = `${props.data.longitud.split("'")[0]}'`
-  const hemisphere = longitude[0] === '-' ? 'W' : 'E'
+  const hemisphere = longitude[0] === "-" ? "W" : "E"
   const longitudeWithoutHemisphere =
-    longitude[0] === '-' ? longitude.slice(1) : longitude
+    longitude[0] === "-" ? longitude.slice(1) : longitude
   return `${longitudeWithoutHemisphere}${hemisphere}`
 })
 </script>
@@ -36,7 +36,7 @@ const formattedLongitude = computed(() => {
       <span
         v-if="props.data.province"
         class="text-xl text-neutral-700 dark:text-neutral-300"
-        >{{ props.data.province.nombre }}</span
+        >{{ props.data.province.name }}</span
       >
     </h1>
     <DataField class="mb-2">

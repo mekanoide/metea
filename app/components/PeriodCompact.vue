@@ -3,7 +3,9 @@ import type { Sky, Wind, Precipitation } from "@@/types/weather"
 
 const props = defineProps<{
   sky: Sky
-  precipitation: Object
+  precipitation: {
+    value: number
+  }
   wind: Wind
   temp?: number
   gust?: number
@@ -20,7 +22,7 @@ const props = defineProps<{
     <IconSky :data="props.sky.value" />
 
     <div class="hidden md:block text-center">{{ props.sky.descripcion }}</div>
-    <div class="grid justify-items-center gap-2">
+    <div v-if="props.sky.value" class="grid justify-items-center gap-2">
       <!-- Temperature -->
       <div v-if="props.temp">
         <Value>{{ props.temp }}</Value

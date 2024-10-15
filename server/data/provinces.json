@@ -1,210 +1,262 @@
 [
   {
     "id": "01",
-    "nombre": "Araba/Álava"
+    "community_id": "75",
+    "name": "Araba/Álava"
   },
   {
     "id": "02",
-    "nombre": "Albacete"
+    "community_id": "68",
+    "name": "Albacete"
   },
   {
     "id": "03",
-    "nombre": "Alicante/Alacant"
+    "community_id": "77",
+    "name": "Alicante/Alacant"
   },
   {
     "id": "04",
-    "nombre": "Almería"
+    "community_id": "61",
+    "name": "Almería"
   },
   {
     "id": "05",
-    "nombre": "Ávila"
+    "community_id": "67",
+    "name": "Ávila"
   },
   {
     "id": "06",
-    "nombre": "Badajoz"
+    "community_id": "70",
+    "name": "Badajoz"
   },
   {
     "id": "07",
-    "nombre": "Illes Balears"
+    "community_id": "64",
+    "name": "Illes Balears"
   },
   {
     "id": "08",
-    "nombre": "Barcelona"
+    "community_id": "69",
+    "name": "Barcelona"
   },
   {
     "id": "09",
-    "nombre": "Burgos"
+    "community_id": "67",
+    "name": "Burgos"
   },
   {
     "id": "10",
-    "nombre": "Cáceres"
+    "community_id": "70",
+    "name": "Cáceres"
   },
   {
     "id": "11",
-    "nombre": "Cádiz"
+    "community_id": "61",
+    "name": "Cádiz"
   },
   {
     "id": "12",
-    "nombre": "Castellón/Castelló"
+    "community_id": "77",
+    "name": "Castellón/Castelló"
   },
   {
     "id": "13",
-    "nombre": "Ciudad Real"
+    "community_id": "68",
+    "name": "Ciudad Real"
   },
   {
     "id": "14",
-    "nombre": "Córdoba"
+    "community_id": "61",
+    "name": "Córdoba"
   },
   {
     "id": "15",
-    "nombre": "A Coruña"
+    "community_id": "71",
+    "name": "A Coruña"
   },
   {
     "id": "16",
-    "nombre": "Cuenca"
+    "community_id": "68",
+    "name": "Cuenca"
   },
   {
     "id": "17",
-    "nombre": "Girona"
+    "community_id": "69",
+    "name": "Girona"
   },
   {
     "id": "18",
-    "nombre": "Granada"
+    "community_id": "61",
+    "name": "Granada"
   },
   {
     "id": "19",
-    "nombre": "Guadalajara"
+    "community_id": "68",
+    "name": "Guadalajara"
   },
   {
     "id": "20",
-    "nombre": "Gipuzkoa"
+    "community_id": "75",
+    "name": "Gipuzkoa"
   },
   {
     "id": "21",
-    "nombre": "Huelva"
+    "community_id": "61",
+    "name": "Huelva"
   },
   {
     "id": "22",
-    "nombre": "Huesca"
+    "community_id": "62",
+    "name": "Huesca"
   },
   {
     "id": "23",
-    "nombre": "Jaén"
+    "community_id": "61",
+    "name": "Jaén"
   },
   {
     "id": "24",
-    "nombre": "León"
+    "community_id": "67",
+    "name": "León"
   },
   {
     "id": "25",
-    "nombre": "Lleida"
+    "community_id": "69",
+    "name": "Lleida"
   },
   {
     "id": "26",
-    "nombre": "La Rioja"
+    "community_id": "76",
+    "name": "La Rioja"
   },
   {
     "id": "27",
-    "nombre": "Lugo"
+    "community_id": "71",
+    "name": "Lugo"
   },
   {
     "id": "28",
-    "nombre": "Madrid"
+    "community_id": "72",
+    "name": "Madrid"
   },
   {
     "id": "29",
-    "nombre": "Málaga"
+    "community_id": "61",
+    "name": "Málaga"
   },
   {
     "id": "30",
-    "nombre": "Murcia"
+    "community_id": "73",
+    "name": "Murcia"
   },
   {
     "id": "31",
-    "nombre": "Navarra"
+    "community_id": "74",
+    "name": "Navarra"
   },
   {
     "id": "32",
-    "nombre": "Ourense"
+    "community_id": "71",
+    "name": "Ourense"
   },
   {
     "id": "33",
-    "nombre": "Asturias"
+    "community_id": "63",
+    "name": "Asturias"
   },
   {
     "id": "34",
-    "nombre": "Palencia"
+    "community_id": "67",
+    "name": "Palencia"
   },
   {
     "id": "35",
-    "nombre": "Las Palmas"
+    "community_id": "65",
+    "name": "Las Palmas"
   },
   {
     "id": "36",
-    "nombre": "Pontevedra"
+    "community_id": "71",
+    "name": "Pontevedra"
   },
   {
     "id": "37",
-    "nombre": "Salamanca"
+    "community_id": "67",
+    "name": "Salamanca"
   },
   {
     "id": "38",
-    "nombre": "Santa Cruz de Tenerife"
+    "community_id": "65",
+    "name": "Santa Cruz de Tenerife"
   },
   {
     "id": "39",
-    "nombre": "Cantabria"
+    "community_id": "66",
+    "name": "Cantabria"
   },
   {
     "id": "40",
-    "nombre": "Segovia"
+    "community_id": "67",
+    "name": "Segovia"
   },
   {
     "id": "41",
-    "nombre": "Sevilla"
+    "community_id": "61",
+    "name": "Sevilla"
   },
   {
     "id": "42",
-    "nombre": "Soria"
+    "community_id": "67",
+    "name": "Soria"
   },
   {
     "id": "43",
-    "nombre": "Tarragona"
+    "community_id": "69",
+    "name": "Tarragona"
   },
   {
     "id": "44",
-    "nombre": "Teruel"
+    "community_id": "62",
+    "name": "Teruel"
   },
   {
     "id": "45",
-    "nombre": "Toledo"
+    "community_id": "68",
+    "name": "Toledo"
   },
   {
     "id": "46",
-    "nombre": "Valencia/València"
+    "community_id": "77",
+    "name": "Valencia/València"
   },
   {
     "id": "47",
-    "nombre": "Valladolid"
+    "community_id": "67",
+    "name": "Valladolid"
   },
   {
     "id": "48",
-    "nombre": "Bizkaia"
+    "community_id": "75",
+    "name": "Bizkaia"
   },
   {
     "id": "49",
-    "nombre": "Zamora"
+    "community_id": "67",
+    "name": "Zamora"
   },
   {
     "id": "50",
-    "nombre": "Zaragoza"
+    "community_id": "62",
+    "name": "Zaragoza"
   },
   {
     "id": "51",
-    "nombre": "Ceuta"
+    "community_id": "78",
+    "name": "Ceuta"
   },
   {
     "id": "52",
-    "nombre": "Melilla"
+    "community_id": "79",
+    "name": "Melilla"
   }
 ]

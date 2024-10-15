@@ -27,7 +27,7 @@ const forecast = forecastData.value
 saveVisitedTown({
   id: id,
   name: forecastData.value.town.nombre,
-  province: forecastData.value.town.province.nombre
+  province: forecastData.value.town.province.name
 })
 
 useHead({
@@ -45,13 +45,7 @@ useHead({
   <Search />
   <article v-if="forecastStatus === 'success'">
     <TownInfo :data="town" />
-    <Day
-      v-for="day in forecast.prediccion.dia"
-      :data="day" />
-    <!--     {{ forecast }}
-    Días: {{ forecast.prediccion.dia.length }}
-    <div v-for="day in forecast.prediccion.dia">{{ day.fecha }}</div>
- -->
+    <Day v-for="day in forecast.prediccion.dia" :data="day" />
   </article>
   <Spinner v-else />
 </template>

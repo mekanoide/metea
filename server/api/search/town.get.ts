@@ -1,9 +1,9 @@
-import towns from '@@/server/data/towns.json' // Asumiendo que tienes un archivo JSON con los municipios
-import provinces from '@@/server/data/provinces.json'
+import towns from "@@/server/data/towns.json" // Asumiendo que tienes un archivo JSON con los municipios
+import provinces from "@@/server/data/provinces.json"
 
 export default defineEventHandler((event) => {
   const query = getQuery(event)
-  const searchTerm = (query.search as string) || ''
+  const searchTerm = (query.search as string) || ""
 
   type Town = {
     latitud: string
@@ -23,7 +23,7 @@ export default defineEventHandler((event) => {
   }
 
   function normalizeText(txt: string) {
-    return txt.normalize('NFD').replace(/[\u0300-\u036f]/g, '') // Elimina acentos
+    return txt.normalize("NFD").replace(/[\u0300-\u036f]/g, "") // Elimina acentos
   }
 
   function sortByPopulation(list: Town[]) {
@@ -62,9 +62,9 @@ export default defineEventHandler((event) => {
     const province = provinces.find((prov) =>
       prov.id.toLowerCase().includes(town.id.substring(2, 4))
     )
-    town.province = province?.nombre
+    town.province = province?.name
   })
 
-  console.log('results', results)
+  /* console.log('results', results) */
   return results
 })
