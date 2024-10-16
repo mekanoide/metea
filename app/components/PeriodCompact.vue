@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Sky, Wind, Precipitation } from "@@/types/weather"
+import type { Sky, Wind, Precipitation } from '@@/types/weather'
 
 const props = defineProps<{
   sky: Sky
@@ -16,7 +16,7 @@ const props = defineProps<{
 <template>
   <div
     :class="{ 'opacity-30': !props.sky.descripcion }"
-    class="flex-1 grid justify-items-center gap-x-4 gap-y-2 text-pretty border-l border-dashed border-neutral-300 dark:border-neutral-700 px-4 pb-6 first:border-none"
+    class="flex-1 grid justify-items-center items-start content-start gap-y-2 text-pretty border-l border-dashed border-neutral-300 dark:border-neutral-700 pb-6 px-1 first:border-none"
   >
     <!-- Period -->
     <IconSky :data="props.sky.value" />
@@ -33,11 +33,13 @@ const props = defineProps<{
       <!-- Wind -->
       <Wind :data="props.wind" :gust="props.gust" />
       <!-- Snow level -->
-      <div v-if="props.snowLevel">
+      <DataField v-if="props.snowLevel" class="flex items-center">
         <Icon name="mdi:snowflake" aria-hidden="true" />
-        <Value>{{ props.snowLevel }}</Value
-        ><Unit>m</Unit>
-      </div>
+        <span>
+          <Value>{{ props.snowLevel }}</Value
+          ><Unit>m</Unit>
+        </span>
+      </DataField>
     </div>
   </div>
 </template>

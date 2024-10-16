@@ -12,9 +12,5 @@ const icon = computed(() => {
 </script>
 
 <template>
-  <Icon
-    aria-hidden="true"
-    :name="icon.icon"
-    size="48" />
+  <Icon aria-hidden="true" :name="icon.icon" size="48" />
 </template>
-

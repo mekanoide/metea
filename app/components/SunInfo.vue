@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { turnTimeToPercentage, turnTimeto24HourFormat } from "@/utils/time"
+import { turnTimeToPercentage, turnTimeto24HourFormat } from '@/utils/time'
 
 const props = defineProps<{
   data: any
@@ -65,13 +65,15 @@ const middayPercent = computed(() => {
         title="Duración del día"
         :style="`left: ${middayPercent}%`"
       >
-        <div class="mt-4">
+        <div class="flex items-center mt-4">
           <Icon
             name="mdi:weather-sunny"
             aria-hidden="true"
             size="16"
-            class="mr-2 text-amber-500"
-          /><Value>{{ dayLength }}</Value> <Unit>horas</Unit>
+            class="text-amber-500"
+          /><span>
+            <Value>{{ dayLength }}</Value> <Unit>horas</Unit>
+          </span>
         </div>
       </DataField>
       <DataField

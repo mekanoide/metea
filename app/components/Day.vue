@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import colors, { sky } from "tailwindcss/colors"
-import uv from "@/data/uv.json"
+import colors, { sky } from 'tailwindcss/colors'
+import uv from '@/data/uv.json'
 const props = defineProps<{
   data: any
 }>()
@@ -34,13 +34,13 @@ const chartData = computed(() => {
     ),
     datasets: [
       {
-        label: "Humedad relativa (%)",
+        label: 'Humedad relativa (%)',
         backgroundColor: colors.gray[500],
         borderColor: colors.gray[500],
         data: props.data.humedadRelativa.dato.map((d: any) => d.value)
       },
       {
-        label: "Prob. precipitación (%)",
+        label: 'Prob. precipitación (%)',
         backgroundColor: colors.blue[500],
         borderColor: colors.blue[500],
         data: precipitationData.value
@@ -76,7 +76,7 @@ const sky = computed(() => {
           <IconSky :data="sky.value" />
         </div>
         <div
-          class="w-16 text-right"
+          class="w-12 text-right"
           aria-label="Temperaturas máxima y mínima"
           title="Temperaturas máxima y mínima"
         >
