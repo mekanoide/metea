@@ -12,7 +12,7 @@
 
 body {
   @apply text-neutral-900 bg-neutral-200 mx-auto dark:bg-neutral-900 dark:text-neutral-200;
-  width: min(calc(100% - 1rem), 840px);
+  width: min(100%, 840px);
 }
 
 input:is(

@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-[90dvh] grid grid-rows-[auto_1fr_auto]">
+  <div class="min-h-[90dvh] grid grid-rows-[auto_1fr_auto] p-4">
     <header class="mb-6 flex justify-center">
       <Banner />
       <h1>
