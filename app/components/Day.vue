@@ -150,6 +150,13 @@ const sky = computed(() => {
           :gust="data.rachaMax[0].value"
         />
       </div>
+      <div class="w-full flex justify-between text-sm text-neutral-500 py-2">
+        <div>00:00</div>
+        <div class="-translate-x-2">06:00</div>
+        <div>12:00</div>
+        <div class="translate-x-2">18:00</div>
+        <div>24:00</div>
+      </div>
       <div class="grid gap-8">
         <SunInfo :data="data.sunInfo" />
         <div class="grid gap-2 content-start">
