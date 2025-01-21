@@ -72,7 +72,8 @@ const middayPercent = computed(() => {
             size="16"
             class="text-amber-500"
           /><span>
-            <Value>{{ dayLength }}</Value> <Unit>horas</Unit>
+            <Value>{{ dayLength }}</Value
+            ><Unit>h</Unit>
           </span>
         </div>
       </DataField>

@@ -1,6 +1,6 @@
-import towns from "@@/server/data/towns.json"
-import provinces from "@@/server/data/provinces.json"
-import { Town } from "@@/types/town"
+import towns from '@@/server/data/towns.json'
+import provinces from '@@/server/data/provinces.json'
+import { Town } from '@@/types/town'
 
 export default defineEventHandler(async (event: any) => {
   type Sun = {
@@ -31,8 +31,8 @@ export default defineEventHandler(async (event: any) => {
     endDate.setDate(startDate.getDate() + 6)
 
     return {
-      startDate: startDate.toISOString().split("T")[0],
-      endDate: endDate.toISOString().split("T")[0]
+      startDate: startDate.toISOString().split('T')[0],
+      endDate: endDate.toISOString().split('T')[0]
     }
   }
 
@@ -43,10 +43,10 @@ export default defineEventHandler(async (event: any) => {
     `${config.API_URL}/prediccion/especifica/municipio/diaria/${id}?api_key=${config.API_KEY}`
   )
   const forecastData = await $fetch(dataLink, {
-    responseType: "text",
+    responseType: 'text',
     headers: {
-      Accept: "text/plain",
-      "Content-Type": "text/plain; charset=charset=ISO-8859-15"
+      Accept: 'text/plain',
+      'Content-Type': 'text/plain; charset=charset=ISO-8859-15'
     }
   })
 
@@ -55,7 +55,7 @@ export default defineEventHandler(async (event: any) => {
     prov.id.toLowerCase().includes(id.substring(0, 2))
   )
 
-  console.log("Provincia", province)
+  console.log('Provincia', province)
 
   const forecast = JSON.parse(forecastData)[0]
 
@@ -90,6 +90,10 @@ export default defineEventHandler(async (event: any) => {
   )
 
   /* console.log("sunriseSunset", sunriseSunset) */
+  const today = new Date().setHours(0, 0, 0, 0)
+  forecast.prediccion.dia = forecast.prediccion.dia.filter((day) => {
+    return new Date(day.fecha).setHours(0, 0, 0, 0) >= today
+  })
 
   forecast.prediccion.dia.forEach((day, index) => {
     day.sunInfo = sunriseSunset[index]

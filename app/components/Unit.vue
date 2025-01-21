@@ -1,5 +1,5 @@
 <template>
-  <span class="text-xs">
+  <span>
     <slot></slot>
   </span>
 </template>
