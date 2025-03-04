@@ -16,7 +16,7 @@ const props = defineProps<{
 <template>
   <div
     :class="{ 'opacity-30': !props.sky.descripcion }"
-    class="flex-1 grid justify-items-center items-start content-start gap-y-2 text-pretty border-l border-dashed border-neutral-300 dark:border-neutral-700 pb-6 px-1 first:border-none"
+    class="flex-1 grid justify-items-center items-start content-start gap-y-2 text-pretty border-l border-neutral-300 dark:border-neutral-700 pb-3 px-1 first:border-none"
   >
     <!-- Period -->
     <IconSky :data="props.sky.value" />

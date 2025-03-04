@@ -13,8 +13,9 @@
       <h2 class="text-center mb-4 text-balance">
         Previsión meteorológica para España con datos de la AEMET
       </h2>
+      <ModeSwitcher />
     </header>
-    <main>
+    <main class="max-w-3xl">
       <slot></slot>
     </main>
     <Footer />

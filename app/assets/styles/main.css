@@ -11,8 +11,7 @@
 }
 
 body {
-  @apply text-neutral-900 bg-neutral-200 mx-auto dark:bg-neutral-900 dark:text-neutral-200;
-  width: min(100%, 840px);
+  @apply text-neutral-900 bg-neutral-100 mx-auto dark:bg-neutral-900 dark:text-neutral-200;
 }
 
 input:is(

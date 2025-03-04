@@ -35,16 +35,10 @@ export default defineNuxtConfig({
           name: 'og:image',
           content: 'https://metea.es/og.jpg'
         },
-        { name: 'author', content: 'mekanoide' },
-        { name: 'google-adsense-account', content: process.env.ADSENSE_ID }
+        { name: 'author', content: 'mekanoide' }
       ],
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.svg' }],
       script: [
-        {
-          async: true,
-          src: `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.ADSENSE_ID}`,
-          crossorigin: 'anonymous'
-        },
         {
           defer: true,
           'data-domain': process.env.PLAUSIBLE_DOMAIN,
@@ -55,12 +49,9 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     API_URL: process.env.API_URL,
-    API_KEY: process.env.API_KEY,
-    public: {
-      ADSENSE_ID: process.env.ADSENSE_ID
-    }
+    API_KEY: process.env.API_KEY
   },
-  modules: ['nuxt-time', '@nuxt/icon', '@nuxtjs/i18n'],
+  modules: ['nuxt-time', '@nuxt/icon', '@nuxtjs/i18n', '@nuxtjs/color-mode'],
   css: ['@/assets/styles/main.css'],
   postcss: {
     plugins: {
@@ -70,6 +61,17 @@ export default defineNuxtConfig({
   },
   i18n: {
     vueI18n: '@@/i18n.config.ts'
+  },
+  colorMode: {
+    preference: 'system',
+    fallback: 'light',
+    hid: 'nuxt-color-mode-script',
+    globalName: '__NUXT_COLOR_MODE__',
+    componentName: 'ColorScheme',
+    classPrefix: '',
+    classSuffix: '',
+    storage: 'localStorage', // or 'sessionStorage' or 'cookie'
+    storageKey: 'nuxt-color-mode'
   },
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true }

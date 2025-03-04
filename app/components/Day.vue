@@ -62,21 +62,21 @@ const sky = computed(() => {
 
 <template>
   <details
-    class="py-6 border-t border-dashed border-neutral-300 dark:border-neutral-700 first:border-t-2 first:border-solid first:border-neutral-900 first:dark:border-neutral-200"
+    class="py-3 border-t border-neutral-300 dark:border-neutral-700 first:border-t-2 first:border-solid first:border-neutral-900 first:dark:border-neutral-200"
   >
-    <summary class="flex justify-between items-center gap-4">
+    <summary class="flex justify-between items-center gap-3">
       <!-- Left block -->
       <DayHeader :date="data.fecha" />
       <!-- Middle block -->
 
       <!-- Right block -->
-      <div class="flex gap-6 items-center justify-self-end">
+      <div class="flex gap-1 items-center justify-self-end">
         <!-- TODO: alerts and warnings -->
         <div :aria-label="sky.description" :title="sky.description">
           <IconSky :data="sky.value" />
         </div>
         <div
-          class="w-12 text-right"
+          class="w-14 text-right"
           aria-label="Temperaturas máxima y mínima"
           title="Temperaturas máxima y mínima"
         >
@@ -150,14 +150,14 @@ const sky = computed(() => {
           :gust="data.rachaMax[0].value"
         />
       </div>
-      <div class="w-full flex justify-between text-sm text-neutral-500 py-2">
+      <div class="w-full flex justify-between text-sm text-neutral-500 py-1">
         <div>00:00</div>
         <div class="-translate-x-2">06:00</div>
         <div>12:00</div>
         <div class="translate-x-2">18:00</div>
         <div>24:00</div>
       </div>
-      <div class="grid gap-8">
+      <div class="grid gap-6">
         <SunInfo :data="data.sunInfo" />
         <div class="grid gap-2 content-start">
           <DataField class="flex items-baseline">

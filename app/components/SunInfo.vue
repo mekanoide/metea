@@ -40,7 +40,7 @@ const middayPercent = computed(() => {
       class="relative w-full h-0.5 bg-neutral-300 dark:bg-neutral-700 rounded-md"
     >
       <div
-        class="absolute flex justify-center items-center gap-1 top-0 h-full bg-amber-500 text-neutral-800 rounded-sm"
+        class="absolute flex justify-center items-center gap-1 top-0 h-full bg-amber-600 dark:bg-amber-500 text-neutral-800 rounded-sm"
         :style="`left: ${dayStartPercent}%; width: ${
           dayEndPercent - dayStartPercent
         }%`"
@@ -56,7 +56,7 @@ const middayPercent = computed(() => {
         aria-label="Salida del sol"
         title="Salida del sol"
       >
-        <div class="w-0.5 h-4 bg-amber-500"></div>
+        <div class="w-0.5 h-2 bg-amber-600 dark:bg-amber-500"></div>
         <Value> {{ sunrise }} </Value>
       </DataField>
       <DataField
@@ -65,12 +65,12 @@ const middayPercent = computed(() => {
         title="Duración del día"
         :style="`left: ${middayPercent}%`"
       >
-        <div class="flex items-center mt-4">
+        <div class="flex items-center mt-2">
           <Icon
             name="mdi:weather-sunny"
             aria-hidden="true"
             size="16"
-            class="text-amber-500"
+            class="text-amber-600 dark:text-amber-500"
           /><span>
             <Value>{{ dayLength }}</Value
             ><Unit>h</Unit>
@@ -83,7 +83,7 @@ const middayPercent = computed(() => {
         aria-label="Puesta del sol"
         title="Puesta del sol"
       >
-        <div class="w-0.5 h-4 bg-amber-500"></div>
+        <div class="w-0.5 h-2 bg-amber-600 dark:bg-amber-500"></div>
         <Value> {{ sunset }} </Value>
       </DataField>
     </div>
