@@ -1,5 +1,7 @@
 <template>
-  <div class="min-h-[90dvh] grid grid-rows-[auto_1fr_auto] p-4">
+  <div
+    class="max-w-screen-md mx-auto min-h-[90dvh] grid grid-rows-[auto_1fr_auto] p-4"
+  >
     <header class="mb-6 grid justify-center">
       <h1 class="flex mb-4 justify-center">
         <NuxtLink
