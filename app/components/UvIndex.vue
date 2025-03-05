@@ -4,35 +4,39 @@ const props = defineProps<{
   data: number
 }>()
 
+const uvIndex = computed(() => {
+  return props.data
+})
+
 const uvMeaning = computed(() => {
   const level = uv.find((item) => item.value === props.data)
   return level?.label
 })
 
 const uvColor = computed(() => {
-  if (props.data < 3) {
-    return 'bg-green-600 dark:bg-green-400'
-  } else if (props.data < 6) {
-    return 'bg-yellow-600 dark:bg-yellow-400'
-  } else if (props.data < 8) {
-    return 'bg-orange-600 dark:bg-orange-400'
-  } else if (props.data < 11) {
-    return 'bg-red-600 dark:bg-red-400'
-  } else if (props.data >= 11) {
-    return 'bg-purple-600 dark:bg-purple-400'
+  if (uvIndex.value < 3) {
+    return 'bg-low-light dark:bg-low-dark'
+  } else if (uvIndex.value < 6) {
+    return 'bg-moderate-light dark:bg-moderate-dark'
+  } else if (uvIndex.value < 8) {
+    return 'bg-high-low dark:bg-high-dark'
+  } else if (uvIndex.value < 11) {
+    return 'bg-veryhigh-light dark:bg-veryhigh-dark'
+  } else if (uvIndex.value >= 11) {
+    return 'bg-extreme-light dark:bg-extreme-dark'
   }
 })
 </script>
 
 <template>
   <div
-    class="grid content-start justify-items-center"
-    :title="`Índice UV máximo ${uvMeaning}`">
-    <div>UV</div>
-    <div
-      class="font-semibold text-neutral-900 px-2 rounded-sm md:text-lg"
-      :class="uvColor">
-      {{ data }}
+    class="grid content-start justify-items-center rounded-sm py-1 text-neutral-900"
+    :class="uvColor"
+    :title="`Índice UV máximo ${uvMeaning}`"
+  >
+    <div class="text-xs">UV</div>
+    <div class="font-bold px-2 md:text-xl">
+      {{ uvIndex }}
     </div>
   </div>
 </template>

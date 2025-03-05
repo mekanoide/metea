@@ -51,13 +51,17 @@ export default defineNuxtConfig({
     API_URL: process.env.API_URL,
     API_KEY: process.env.API_KEY
   },
-  modules: ['nuxt-time', '@nuxt/icon', '@nuxtjs/i18n', '@nuxtjs/color-mode'],
-  css: ['@/assets/styles/main.css'],
-  postcss: {
-    plugins: {
-      tailwindcss: {},
-      autoprefixer: {}
-    }
+  modules: [
+    'nuxt-time',
+    '@nuxt/icon',
+    '@nuxtjs/i18n',
+    '@nuxtjs/color-mode',
+    '@nuxtjs/tailwindcss'
+  ],
+  tailwindcss: {
+    exposeConfig: true,
+    cssPath: '@/assets/css/tailwind.css',
+    viewer: true
   },
   i18n: {
     vueI18n: '@@/i18n.config.ts'

@@ -33,10 +33,9 @@ useHead({
   <button
     class="flex items-center gap-4 px-4 py-6"
     type="button"
-    @click.prevent="onSearchCurrentLocation">
-    <Icon
-      name="mdi:my-location"
-      size="24" />
+    @click.prevent="onSearchCurrentLocation"
+  >
+    <Icon name="mdi:my-location" size="24" />
     Usar ubicación actual
   </button>
   <div v-if="visitedTowns && visitedTowns.length > 0">
@@ -45,8 +44,9 @@ useHead({
     <NuxtLink
       v-for="town in visitedTowns"
       :key="town.id"
-      class="block px-4 py-6 border-t border-1 border-dashed border-neutral-300 dark:border-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-800"
-      :to="`/forecast/${town.id}`">
+      class="block px-4 py-6 border-t border-1 border-neutral-300 dark:border-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-800 hover:bg-opacity-50 dark:hover:bg-opacity-50"
+      :to="`/forecast/${town.id}`"
+    >
       <span class="font-semibold">{{ town.name }}</span
       >,
       <span class="text-neutral-600 dark:text-neutral-400">{{

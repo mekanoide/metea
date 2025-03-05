@@ -1,10 +1,18 @@
 <script lang="ts" setup>
 const colorMode = useColorMode()
 
-const isDark = computed(() => colorMode.preference === 'dark')
+const modeIcon = computed(() => {
+  if (colorMode.value === 'dark') {
+    return 'mdi:weather-night'
+  }
+  return 'mdi:weather-sunny'
+})
 
 function onToggleColorMode() {
-  colorMode.preference = colorMode.preference === 'dark' ? 'light' : 'dark'
+  colorMode.preference =
+    colorMode.preference === 'dark' || colorMode.preference === 'system'
+      ? 'light'
+      : 'dark'
 }
 </script>
 
@@ -13,9 +21,6 @@ function onToggleColorMode() {
     class="grid place-content-center p-2"
     @click.stop="onToggleColorMode()"
   >
-    <Icon
-      :name="isDark ? 'mdi:weather-night' : 'mdi:weather-sunny'"
-      size="24"
-    />
+    <Icon :name="modeIcon" size="24" />
   </button>
 </template>

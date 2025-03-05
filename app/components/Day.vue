@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import colors, { sky } from 'tailwindcss/colors'
+/* import colors from 'tailwindcss/colors' */
 import uv from '@/data/uv.json'
 const props = defineProps<{
   data: any
@@ -27,28 +27,6 @@ const precipitationData = computed(() => {
   return precipitationValues.slice(3)
 })
 
-const chartData = computed(() => {
-  return {
-    labels: props.data.humedadRelativa.dato.map(
-      (item: any) => `${item.hora}:00`
-    ),
-    datasets: [
-      {
-        label: 'Humedad relativa (%)',
-        backgroundColor: colors.gray[500],
-        borderColor: colors.gray[500],
-        data: props.data.humedadRelativa.dato.map((d: any) => d.value)
-      },
-      {
-        label: 'Prob. precipitación (%)',
-        backgroundColor: colors.blue[500],
-        borderColor: colors.blue[500],
-        data: precipitationData.value
-      }
-    ]
-  }
-})
-
 const sky = computed(() => {
   const period = props.data.estadoCielo[0].value
     ? props.data.estadoCielo[0]
@@ -70,8 +48,9 @@ const sky = computed(() => {
       <!-- Middle block -->
 
       <!-- Right block -->
-      <div class="flex gap-1 items-center justify-self-end">
+      <div class="flex gap-3 items-center justify-self-end">
         <!-- TODO: alerts and warnings -->
+        <UvIndex v-if="data.uvMax" :data="data.uvMax" />
         <div :aria-label="sky.description" :title="sky.description">
           <IconSky :data="sky.value" />
         </div>
