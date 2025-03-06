@@ -7,7 +7,7 @@
       to="https://github.com/mekanoide"
       target="_blank"
       >mekanoide</NuxtLink
-    >, 2024. Información elaborada por la
+    >, 2025. Información elaborada por la
     <NuxtLink
       class="underline underline-offset-4"
       to="https://www.aemet.es"

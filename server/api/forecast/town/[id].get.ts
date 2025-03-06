@@ -50,7 +50,7 @@ export default defineEventHandler(async (event: any) => {
     }
   })
 
-  const town: Town = towns.find((town) => town.id.toLowerCase() === `id${id}`)
+  const town = towns.find((town) => town.id.toLowerCase() === `id${id}`)
   const province = provinces.filter((prov) =>
     prov.id.toLowerCase().includes(id.substring(0, 2))
   )
