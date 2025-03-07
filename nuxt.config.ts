@@ -41,23 +41,7 @@ export default defineNuxtConfig({
         },
         { name: 'author', content: 'mekanoide' }
       ],
-      link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.svg' },
-        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-        {
-          rel: 'preconnect',
-          href: 'https://fonts.gstatic.com',
-          crossorigin: 'anonymous'
-        },
-
-        // Carga asíncrona del CSS
-        {
-          rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap',
-          media: 'print',
-          onload: "this.media='all'"
-        }
-      ],
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.svg' }],
       script: [
         {
           defer: true,
