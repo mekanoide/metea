@@ -31,7 +31,7 @@ useHead({
 <template>
   <Search />
   <button
-    class="flex items-center gap-4 px-4 py-6"
+    class="w-full flex items-center gap-4 px-4 py-6 hover:bg-neutral-200 dark:hover:bg-neutral-800 hover:bg-opacity-50 dark:hover:bg-opacity-50"
     type="button"
     @click.prevent="onSearchCurrentLocation"
   >

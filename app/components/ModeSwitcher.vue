@@ -18,6 +18,7 @@ function onToggleColorMode() {
 
 <template>
   <button
+    aria-label="Cambiar modo de color"
     class="grid place-content-center p-2"
     @click.stop="onToggleColorMode()"
   >
