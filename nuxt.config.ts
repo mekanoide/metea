@@ -55,13 +55,7 @@ export default defineNuxtConfig({
     API_URL: process.env.API_URL,
     API_KEY: process.env.API_KEY
   },
-  modules: [
-    'nuxt-time',
-    '@nuxt/icon',
-    '@nuxtjs/i18n',
-    '@nuxtjs/color-mode',
-    '@nuxtjs/tailwindcss'
-  ],
+  modules: ['nuxt-time', '@nuxt/icon', '@nuxtjs/i18n', '@nuxtjs/color-mode', '@nuxtjs/tailwindcss', '@nuxt/fonts'],
   tailwindcss: {
     exposeConfig: true,
     cssPath: '@/assets/css/tailwind.css',

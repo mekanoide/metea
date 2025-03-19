@@ -7,7 +7,7 @@ export default {
   ],
   theme: {
     fontFamily: {
-      sans: ['Inconsolata', 'sans-serif']
+      sans: ['Atkinson Mono', 'sans-serif']
     },
     extend: {
       colors: {
