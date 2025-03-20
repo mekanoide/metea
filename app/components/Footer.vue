@@ -18,11 +18,6 @@ import CarbonBadge from 'vue-carbonbadge'
         >Agencia Estatal de Meteorología</NuxtLink
       >.
     </div>
-
-    <div class="mt-6">
-      <ClientOnly>
-        <CarbonBadge />
-      </ClientOnly>
-    </div>
+    <!--     <div class="mt-6"></div> -->
   </footer>
 </template>
