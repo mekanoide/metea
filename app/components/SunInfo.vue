@@ -5,33 +5,35 @@ const props = defineProps<{
   data: any
 }>()
 
-const sunrise = computed(() => {
-  return turnTimeto24HourFormat(props.data.sunrise)
-})
+function safeTimeFormat(time?: string) {
+  try {
+    return time ? turnTimeto24HourFormat(time) : '--:--'
+  } catch {
+    return '--:--'
+  }
+}
 
-const sunset = computed(() => {
-  return turnTimeto24HourFormat(props.data.sunset)
-})
+function safePercentage(time?: string) {
+  try {
+    return time ? turnTimeToPercentage(time) : 0
+  } catch {
+    return 0
+  }
+}
 
-const dayLength = computed(() => {
-  return turnTimeto24HourFormat(props.data.day_length)
-})
+const sunrise = computed(() => turnTimeto24HourFormat(props.data?.sunrise))
+const sunset = computed(() => turnTimeto24HourFormat(props.data?.sunset))
+const dayLength = computed(() => turnTimeto24HourFormat(props.data?.day_length))
 
 const dayStartPercent = computed(() => {
-  return turnTimeToPercentage(sunrise.value)
+  return props.data.sunrise ? turnTimeToPercentage(props.data.sunrise) : 0
 })
-
 const dayEndPercent = computed(() => {
-  return turnTimeToPercentage(sunset.value)
+  return props.data.sunset ? turnTimeToPercentage(props.data.sunset) : 0
 })
-
-const dayLengthPercent = computed(() => {
-  return turnTimeToPercentage(props.data.day_length)
-})
-
-const middayPercent = computed(() => {
-  return (dayStartPercent.value + dayEndPercent.value) / 2
-})
+const middayPercent = computed(
+  () => (dayStartPercent.value + dayEndPercent.value) / 2
+)
 </script>
 
 <template>

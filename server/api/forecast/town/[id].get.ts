@@ -55,8 +55,6 @@ export default defineEventHandler(async (event: any) => {
     prov.id.toLowerCase().includes(id.substring(0, 2))
   )
 
-  console.log('Provincia', province)
-
   const forecast = JSON.parse(forecastData)[0]
 
   const { startDate, endDate } = getStartAndEndDate(
@@ -86,7 +84,7 @@ export default defineEventHandler(async (event: any) => {
    * Sunrise and sunset
    */
   const { results: sunriseSunset }: Sun = await $fetch(
-    `https://api.sunrisesunset.io/json?lat=${town.latitud_dec}&lng=${town.longitud_dec}&date_start=${startDate}&date_end=${endDate}`
+    `https://api.sunrisesunset.io/json?lat=${town?.latitud_dec}&lng=${town?.longitud_dec}&date_start=${startDate}&date_end=${endDate}&time_format=24`
   )
 
   /* console.log("sunriseSunset", sunriseSunset) */

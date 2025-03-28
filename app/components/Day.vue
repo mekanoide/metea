@@ -137,7 +137,7 @@ const sky = computed(() => {
         <div>24:00</div>
       </div>
       <div class="grid gap-6">
-        <SunInfo :data="data.sunInfo" />
+        <SunInfo v-if="data.sunInfo" :data="data.sunInfo" />
         <div class="grid gap-2 content-start">
           <DataField class="flex items-baseline">
             <label>Humedad relativa: </label>
