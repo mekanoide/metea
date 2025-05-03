@@ -3,6 +3,13 @@ import provinces from '@@/server/data/provinces.json'
 import { Town } from '@@/types/town'
 
 export default defineEventHandler(async (event: any) => {
+
+  const storage = useStorage()
+  const config = useRuntimeConfig()
+
+  const { id } = event.context.params
+
+
   type Sun = {
     results: {
       date: string
@@ -18,6 +25,17 @@ export default defineEventHandler(async (event: any) => {
     }[]
     status: string
   }
+
+
+
+  // 1. Verify cache
+  const cacheKey = `cache:metea:${id}`
+  const cachedData = await storage.getItem(cacheKey)
+
+  if (cachedData && cachedData.expiry > Date.now()) {
+    return cachedData.data
+  }
+
 
   function getStartAndEndDate(date: string): {
     startDate: string
@@ -36,9 +54,7 @@ export default defineEventHandler(async (event: any) => {
     }
   }
 
-  const config = useRuntimeConfig()
 
-  const { id } = event.context.params
   const { datos: dataLink } = await $fetch(
     `${config.API_URL}/prediccion/especifica/municipio/diaria/${id}?api_key=${config.API_KEY}`
   )
@@ -89,21 +105,31 @@ export default defineEventHandler(async (event: any) => {
 
   /* console.log("sunriseSunset", sunriseSunset) */
   const today = new Date().setHours(0, 0, 0, 0)
-  forecast.prediccion.dia = forecast.prediccion.dia.filter((day) => {
+  forecast.prediccion.dia = forecast.prediccion.dia.filter((day: any) => {
     return new Date(day.fecha).setHours(0, 0, 0, 0) >= today
   })
 
-  forecast.prediccion.dia.forEach((day, index) => {
+  forecast.prediccion.dia.forEach((day: any, index: number) => {
     day.sunInfo = sunriseSunset[index]
   })
 
   /* console.log("forecastWithSunriseSunset", forecast) */
   /* console.log("warnings", warnings) */
 
-  return {
+
+  const apiData = {
     /*     warnings: warnings, */
     ...forecast,
     province: province,
     town: { ...town, province: province[0] }
   }
+
+  // 3. Save in cache (30 minutes)
+  await storage.setItem(cacheKey, {
+    data: apiData,
+    expiry: Date.now() + 1800000 // 30 min
+  })
+
+
+  return apiData
 })

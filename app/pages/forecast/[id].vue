@@ -7,12 +7,7 @@ const id = route.params.id as string
 /*
  * Fetch town forecast
  */
-const { data: forecastData, status: forecastStatus } = await useAsyncData(
-  'forecast',
-  () => {
-    return $fetch(`/api/forecast/town/${id}`)
-  }
-)
+const { error: forecastError, data: forecastData, status: forecastStatus } = await useFetch(`/api/forecast/town/${id}`)
 
 const town = forecastData.value.town
 const forecast = forecastData.value
@@ -43,9 +38,13 @@ useHead({
 
 <template>
   <Search />
-  <article v-if="forecastStatus === 'success'">
+  <Spinner v-if="forecastStatus === 'pending'" />
+  <article v-else-if="forecastData">
     <TownInfo :data="town" />
     <Day v-for="day in forecast.prediccion.dia" :data="day" />
   </article>
-  <Spinner v-else />
+  <div v-else-if="forecastError">
+    <h1>Error :(</h1>
+    <p>No se ha podido obtener la previsión para {{ town.nombre }}.</p>
+  </div>
 </template>
