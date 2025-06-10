@@ -1,6 +1,3 @@
-<script lang="ts" setup>
-import CarbonBadge from 'vue-carbonbadge'
-</script>
 <template>
   <footer class="py-4 text-center text-sm">
     <div>

@@ -42,10 +42,11 @@ const formattedLongitude = computed(() => {
     <DataField class="mb-2">
       Población: <Value>{{ normalizedPopulation }}</Value>
     </DataField>
-    <div class="flex gap-x-6 flex-wrap">
+    <div class="flex gap-x-3 flex-wrap">
       <DataField>
         Latitud: <Value>{{ formattedLatitude }}</Value>
       </DataField>
+      <span class="text-neutral-500 dark:text-neutral-400">///</span>
       <DataField>
         Longitud: <Value>{{ formattedLongitude }}</Value>
       </DataField>

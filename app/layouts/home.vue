@@ -3,7 +3,7 @@
     class="max-w-screen-md mx-auto min-h-[90dvh] grid grid-rows-[auto_1fr_auto] p-4"
   >
     <header>
-      <div class="mb-3 grid grid-cols-[6rem_1fr_6rem] items-center">
+      <div class="mb-3 grid grid-cols-[2rem_1fr_2rem] items-center">
         <h1 class="col-start-2 flex justify-center">
           <NuxtLink
             class="text-xl font-semibold"

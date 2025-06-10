@@ -3,7 +3,7 @@ import type { Wind } from '@@/types/weather'
 
 const props = defineProps<{
   data: Wind
-  gust?: number
+  gust?: string
 }>()
 
 function iconWindDirection(dir: string): string {

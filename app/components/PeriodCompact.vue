@@ -8,8 +8,8 @@ const props = defineProps<{
   }
   wind: Wind
   temp?: number
-  gust?: number
-  snowLevel?: number
+  gust?: string
+  snowLevel?: string
 }>()
 </script>
 

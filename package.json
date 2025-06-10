@@ -8,7 +8,9 @@
     "dev": "nuxt dev --port 3010",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@nuxt/fonts": "0.11.0",
@@ -26,7 +28,10 @@
     "@iconify-json/mdi": "^1.2.3",
     "@iconify-json/wi": "^1.2.1",
     "@intlify/eslint-plugin-vue-i18n": "4.0.0",
+    "@nuxt/test-utils": "^3.19.1",
     "@nuxtjs/tailwindcss": "6.13.1",
-    "nuxt-time": "^1.0.3"
+    "@vitest/coverage-v8": "^3.2.3",
+    "nuxt-time": "^1.0.3",
+    "vitest": "^3.2.3"
   }
 }
