@@ -46,7 +46,6 @@ const formattedLongitude = computed(() => {
       <DataField>
         Latitud: <Value>{{ formattedLatitude }}</Value>
       </DataField>
-      <span class="text-neutral-500 dark:text-neutral-400">///</span>
       <DataField>
         Longitud: <Value>{{ formattedLongitude }}</Value>
       </DataField>

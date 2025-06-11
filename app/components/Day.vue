@@ -138,17 +138,26 @@ const sky = computed(() => {
       </div>
       <div class="grid gap-6">
         <SunInfo v-if="data.sunInfo" :data="data.sunInfo" />
-        <div class="grid gap-2 content-start">
-          <DataField class="flex items-baseline">
-            <label>Humedad relativa: </label>
+        <div class="grid md:grid-cols-2 gap-y-2 gap-x-6 content-start">
+          <DataField>
+            Humedad relativa: 
             <Value
-              class="text-neutral-900 dark:text-neutral-100 font-semibold"
               >{{ data.humedadRelativa.minima }}</Value
             ><Unit>%</Unit><span> - </span>
             <Value
               class="text-neutral-900 dark:text-neutral-100 font-semibold"
               >{{ data.humedadRelativa.maxima }}</Value
             ><Unit>%</Unit>
+          </DataField>
+          <DataField v-if="data.sensTermica">
+            Sensación térmica: 
+            <Value
+              >{{ data.sensTermica.maxima }}</Value
+            ><Unit>°C</Unit><span> - </span>
+            <Value
+              class="text-neutral-900 dark:text-neutral-100 font-semibold"
+              >{{ data.sensTermica.minima }}</Value
+            ><Unit>°C</Unit>
           </DataField>
           <DataField v-if="data.uvMax">
             Índice UV máximo:
