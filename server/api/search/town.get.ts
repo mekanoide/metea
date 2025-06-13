@@ -65,6 +65,5 @@ export default defineEventHandler((event) => {
     town.province = province?.name
   })
 
-  /* console.log('results', results) */
   return results
 })

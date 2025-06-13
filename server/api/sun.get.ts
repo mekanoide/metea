@@ -26,7 +26,5 @@ export default defineEventHandler(async (event: any) => {
     `https://api.sunrisesunset.io/json?lat=${latitude}&lng=${longitude}&date=${date}`
   )
 
-  /* console.log('results', results) */
-
   return results
 })

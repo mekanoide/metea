@@ -11,7 +11,6 @@ async function onSearch() {
     searchResults.value = []
     return
   }
-  console.log('search', searchQuery.value)
   const data = await $fetch('/api/search/town', {
     params: {
       search: searchQuery.value

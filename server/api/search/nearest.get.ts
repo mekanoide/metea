@@ -55,10 +55,13 @@ export default defineEventHandler(async (event) => {
       if (!nearestTown) {
         return null
       }
-      const {id} = nearestTown
+      const { id } = nearestTown
       return id
     } catch (error) {
-      console.error(error)
+      throw createError({
+        statusCode: 500,
+        statusMessage: 'Error al encontrar el municipio más cercano'
+      })
     }
   }
 

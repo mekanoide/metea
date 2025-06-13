@@ -14,11 +14,9 @@ const visitedTowns = getVisitedTowns()
 async function onSearchCurrentLocation() {
   if (coords.value.latitude !== null && coords.value.latitude !== Infinity) {
     const { latitude, longitude } = coords.value
-    console.log('lat', latitude, 'lon', longitude)
     const { data } = await useFetch('/api/search/nearest', {
       query: { lat: latitude, lng: longitude }
     })
-    console.log('id', data.value)
     navigateTo(`/forecast/${data.value}`)
   }
 }

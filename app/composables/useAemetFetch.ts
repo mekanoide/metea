@@ -2,7 +2,6 @@ export function useAemetFetch(endpoint: string, options: any = {}) {
   const config = useRuntimeConfig()
 
   const url = `${config.API_URL}${endpoint}?api_key=${config.API_KEY}`
-  console.log('url', url)
   const params = {
     ...options,
     headers: {
