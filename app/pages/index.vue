@@ -36,20 +36,22 @@ useHead({
     <Icon name="mdi:my-location" size="24" />
     Usar ubicación actual
   </button>
-  <div v-if="visitedTowns && visitedTowns.length > 0">
-    <!--     <h2 class="text-center mt-6">{{ $t('lastSeen') }}</h2> -->
+  <ClientOnly>
+    <div v-if="visitedTowns && visitedTowns.length > 0">
+      <!--     <h2 class="text-center mt-6">{{ $t('lastSeen') }}</h2> -->
 
-    <NuxtLink
-      v-for="town in visitedTowns"
-      :key="town.id"
-      class="block px-4 py-6 border-t border-1 border-neutral-300 dark:border-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-800 hover:bg-opacity-50 dark:hover:bg-opacity-50"
-      :to="`/forecast/${town.id}`"
-    >
-      <span class="font-semibold">{{ town.name }}</span
-      >,
-      <span class="text-neutral-600 dark:text-neutral-400">{{
-        town.province
-      }}</span>
-    </NuxtLink>
-  </div>
+      <NuxtLink
+        v-for="town in visitedTowns"
+        :key="town.id"
+        class="block px-4 py-6 border-t border-1 border-neutral-300 dark:border-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-800 hover:bg-opacity-50 dark:hover:bg-opacity-50"
+        :to="`/forecast/${town.id}`"
+      >
+        <span class="font-semibold">{{ town.name }}</span
+        >,
+        <span class="text-neutral-600 dark:text-neutral-400">{{
+          town.province
+        }}</span>
+      </NuxtLink>
+    </div>
+  </ClientOnly>
 </template>

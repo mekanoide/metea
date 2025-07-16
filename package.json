@@ -27,5 +27,13 @@
     "@intlify/eslint-plugin-vue-i18n": "4.0.0",
     "@nuxtjs/tailwindcss": "6.13.1",
     "nuxt-time": "^1.0.3"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@parcel/watcher"
+    ],
+    "ignoredBuiltDependencies": [
+      "esbuild"
+    ]
   }
 }

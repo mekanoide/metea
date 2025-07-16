@@ -50,7 +50,7 @@ const sky = computed(() => {
       <!-- Right block -->
       <div class="flex gap-3 items-center justify-self-end">
         <!-- TODO: alerts and warnings -->
-        <UvIndex v-if="data.uvMax" :data="data.uvMax" />
+        <UvIndex v-if="data.uvMax && data.uvMax > 0" :data="data.uvMax" />
         <div :aria-label="sky.description" :title="sky.description">
           <IconSky :data="sky.value" />
         </div>
