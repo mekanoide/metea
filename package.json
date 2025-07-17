@@ -26,8 +26,7 @@
     "@iconify-json/wi": "^1.2.1",
     "@intlify/eslint-plugin-vue-i18n": "4.0.0",
     "@nuxtjs/tailwindcss": "6.13.1",
-    "nuxt-time": "^1.0.3",
-    "tailwindcss": "^4.1.11"
+    "nuxt-time": "^1.0.3"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
