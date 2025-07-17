@@ -6,5 +6,8 @@ export default defineI18nConfig(() => ({
     },
     en: {
     }
+  },
+  bundle: {
+    optimizeTranslationDirective: false
   }
 }))
