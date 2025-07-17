@@ -2,7 +2,7 @@
   "name": "metea",
   "private": true,
   "type": "module",
-  "packageManager": "pnpm@10.6.4",
+  "packageManager": "pnpm@10.13.1",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev --port 3010",
@@ -26,7 +26,8 @@
     "@iconify-json/wi": "^1.2.1",
     "@intlify/eslint-plugin-vue-i18n": "4.0.0",
     "@nuxtjs/tailwindcss": "6.13.1",
-    "nuxt-time": "^1.0.3"
+    "nuxt-time": "^1.0.3",
+    "tailwindcss": "^4.1.11"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
