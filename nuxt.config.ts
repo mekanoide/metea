@@ -55,7 +55,7 @@ export default defineNuxtConfig({
     API_URL: process.env.API_URL,
     API_KEY: process.env.API_KEY
   },
-  modules: ['nuxt-time', '@nuxt/icon', '@nuxtjs/i18n', '@nuxtjs/color-mode', '@nuxtjs/tailwindcss', '@nuxt/fonts'],
+  modules: ['@nuxt/icon', '@nuxtjs/i18n', '@nuxtjs/color-mode', '@nuxtjs/tailwindcss', '@nuxt/fonts'],
   tailwindcss: {
     exposeConfig: true,
     cssPath: '@/assets/css/tailwind.css',
@@ -75,6 +75,6 @@ export default defineNuxtConfig({
     storage: 'localStorage', // or 'sessionStorage' or 'cookie'
     storageKey: 'nuxt-color-mode'
   },
-  compatibilityDate: '2024-04-03',
+  compatibilityDate: '2025-07-17',
   devtools: { enabled: true }
 })
