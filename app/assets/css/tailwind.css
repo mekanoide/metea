@@ -19,7 +19,7 @@ input:is(
     [type='email'],
     [type='password']
   ) {
-  @apply bg-neutral-300 w-full p-4 dark:bg-neutral-800 placeholder:text-neutral-500 dark:placeholder:text-neutral-500 focus:outline focus:outline-neutral-800 dark:focus:outline-neutral-200 rounded-md;
+  @apply w-full p-4 border-2 bg-transparent border-neutral-800 dark:border-neutral-200 placeholder:text-neutral-500 dark:placeholder:text-neutral-500 focus:outline focus:border-neutral-900 dark:focus:border-neutral-100 focus:outline-none rounded-md;
 }
 
 details summary::-webkit-details-marker {

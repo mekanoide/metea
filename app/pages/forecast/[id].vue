@@ -77,7 +77,7 @@ function getErrorMessage(error: any) {
   
   <!-- Estado de carga -->
   <div v-if="isLoading" class="flex flex-col items-center justify-center min-h-[50vh] p-8">
-    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto mb-4"></div>
+    <Spinner />
     <h2 class="text-xl font-semibold mb-2">Cargando pronóstico</h2>
     <p class="text-neutral-600 dark:text-neutral-400">
       Conectando con AEMET...
@@ -87,17 +87,14 @@ function getErrorMessage(error: any) {
   <!-- Estado de error -->
   <div v-else-if="error" class="flex flex-col items-center justify-center min-h-[50vh] p-8">
     <div class="text-center max-w-md">
-      <div class="text-red-500 mb-4">
-        <Icon name="mdi:alert-circle" size="48" />
-      </div>
-      <h2 class="text-xl font-semibold mb-2 text-red-600 dark:text-red-400">
+      <Icon name="mdi:alert-circle" size="48" />
+      <h2 class="text-xl font-semibold mb-4">
         Error al cargar el pronóstico
       </h2>
       <p class="text-neutral-600 dark:text-neutral-400 mb-4">
         {{ getErrorMessage(error) }}
       </p>
       <button
-        class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-colors"
         @click="retry"
       >
         Intentar de nuevo
