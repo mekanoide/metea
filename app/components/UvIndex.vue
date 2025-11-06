@@ -13,6 +13,25 @@ const uvMeaning = computed(() => {
   return level?.label
 })
 
+function isCurrentIndex(index: number): boolean {
+  if (uvIndex.value >= 11 && index === 0) {
+    return true
+  }
+  if (uvIndex.value < 11 && uvIndex.value >= 8 && index === 1) {
+    return true
+  }
+  if (uvIndex.value < 8 && uvIndex.value >= 6 && index === 2) {
+    return true
+  }
+  if (uvIndex.value < 6 && uvIndex.value >= 3 && index === 3) {
+    return true
+  }
+  if (uvIndex.value < 3 && index === 4) {
+    return true
+  }
+  return false
+}
+
 const uvColor = computed(() => {
   if (uvIndex.value < 3) {
     return 'bg-low-light dark:bg-low-dark'
@@ -30,13 +49,23 @@ const uvColor = computed(() => {
 
 <template>
   <div
-    class="grid content-start justify-items-center rounded-sm py-1 text-neutral-900"
-    :class="uvColor"
+    class="flex gap-1"
     :title="`Índice UV máximo ${uvMeaning}`"
   >
-    <div class="text-xs">UV</div>
-    <div class="font-bold px-2 md:text-xl">
-      {{ uvIndex }}
+    <div class="text-center">
+      <div class="text-xs">UV</div>
+      <div class="font-bold px-2 md:text-2xl">
+        {{ uvIndex }}
+      </div>
+    </div>
+    <div class="grid gap-[2px]">
+      <div
+        v-for="(item, index) in 5"
+        class="w-4 rounded-sm"
+        :class="
+          isCurrentIndex(index) ? uvColor : 'bg-neutral-300 dark:bg-neutral-700'
+        "
+      ></div>
     </div>
   </div>
 </template>

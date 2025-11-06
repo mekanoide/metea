@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Sky, Wind, Precipitation } from '@@/types/weather'
+import type { Sky, Wind, Precipitation } from '~~/shared/types/weather'
 
 const props = defineProps<{
   sky: Sky

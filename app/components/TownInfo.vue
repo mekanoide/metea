@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Town } from "@@/types/town"
+import type { Town } from "~~/shared/types/town"
 
 const props = defineProps<{
   data: Town

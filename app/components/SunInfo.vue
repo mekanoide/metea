@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { turnTimeToPercentage, turnTimeto24HourFormat } from '@/utils/time'
+import { turnTimeToPercentage, turnTimeto24HourFormat } from '~~/shared/utils/time'
 
 const props = defineProps<{
   data: any

@@ -48,10 +48,16 @@ const sky = computed(() => {
       <!-- Middle block -->
 
       <!-- Right block -->
-      <div class="flex gap-3 items-center justify-self-end">
+      <div class="flex gap-4 items-center justify-self-end">
         <!-- TODO: alerts and warnings -->
-        <UvIndex v-if="data.uvMax && data.uvMax > 0" :data="data.uvMax" />
-        <div :aria-label="sky.description" :title="sky.description">
+        <UvIndex
+          v-if="data.uvMax && data.uvMax > 0"
+          :data="data.uvMax"
+        />
+        <div
+          :aria-label="sky.description"
+          :title="sky.description"
+        >
           <IconSky :data="sky.value" />
         </div>
         <div
@@ -137,12 +143,14 @@ const sky = computed(() => {
         <div>24:00</div>
       </div>
       <div class="grid gap-6">
-        <SunInfo v-if="data.sunInfo" :data="data.sunInfo" />
+        <SunInfo
+          v-if="data.sunInfo"
+          :data="data.sunInfo"
+        />
         <div class="grid md:grid-cols-2 gap-y-2 gap-x-6 content-start">
           <DataField>
-            Humedad relativa: 
-            <Value
-              >{{ data.humedadRelativa.minima }}</Value
+            Humedad relativa:
+            <Value>{{ data.humedadRelativa.minima }}</Value
             ><Unit>%</Unit><span> - </span>
             <Value
               class="text-neutral-900 dark:text-neutral-100 font-semibold"
@@ -150,9 +158,8 @@ const sky = computed(() => {
             ><Unit>%</Unit>
           </DataField>
           <DataField v-if="data.sensTermica">
-            Sensación térmica: 
-            <Value
-              >{{ data.sensTermica.maxima }}</Value
+            Sensación térmica:
+            <Value>{{ data.sensTermica.maxima }}</Value
             ><Unit>°C</Unit><span> - </span>
             <Value
               class="text-neutral-900 dark:text-neutral-100 font-semibold"
