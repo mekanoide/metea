@@ -11,7 +11,6 @@
           ><MeteaIcon size="32"
         /></NuxtLink>
       </h1>
-      <ModeSwitcher class="justify-self-end" />
     </header>
     <main>
       <slot></slot>

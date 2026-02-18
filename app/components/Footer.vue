@@ -1,5 +1,5 @@
 <template>
-  <footer class="py-4 text-center text-sm">
+  <footer class="flex justify-between items-center py-2 text-center text-sm">
     <div>
       Creado por
       <NuxtLink
@@ -16,5 +16,6 @@
       >.
     </div>
     <!--     <div class="mt-6"></div> -->
+    <ModeSwitcher class="justify-self-end" />
   </footer>
 </template>
