@@ -29,7 +29,7 @@ useHead({
 <template>
   <Search />
   <button
-    class="w-full flex items-center gap-4 px-4 py-6 hover:bg-neutral-200 dark:hover:bg-neutral-800 hover:bg-opacity-50 dark:hover:bg-opacity-50"
+    class="w-full flex items-center gap-4 px-4 py-6 hover:bg-neutral-200/50 dark:hover:bg-neutral-800/50"
     type="button"
     @click.prevent="onSearchCurrentLocation"
   >
@@ -43,7 +43,7 @@ useHead({
       <NuxtLink
         v-for="town in visitedTowns"
         :key="town.id"
-        class="block px-4 py-6 border-t border-1 border-neutral-300 dark:border-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-800 hover:bg-opacity-50 dark:hover:bg-opacity-50"
+        class="block px-4 py-6 border-t border border-neutral-300 dark:border-neutral-700 hover:bg-neutral-200/50 dark:hover:bg-neutral-800/50"
         :to="`/forecast/${town.id}`"
       >
         <span class="font-semibold">{{ town.name }}</span

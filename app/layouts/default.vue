@@ -1,6 +1,6 @@
 <template>
   <div
-    class="max-w-screen-md mx-auto min-h-[90dvh] grid grid-rows-[auto_1fr_auto] p-4"
+    class="max-w-3xl mx-auto min-h-[90dvh] grid grid-rows-[auto_1fr_auto] p-4"
   >
     <header class="mb-6 grid grid-cols-[2rem_1fr_2rem] items-center">
       <h1 class="col-start-2 justify-self-center">

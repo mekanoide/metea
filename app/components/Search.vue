@@ -67,35 +67,48 @@ watch(searchQuery, () => {
 </script>
 
 <template>
-  <div
-    class="grid relative"
-    ref="searchElement">
-    <input
-      type="search"
-      placeholder="Buscar municipio..."
-      v-model="searchQuery"
-      @keyup.enter="onNavigateToSelectedTown()"
-      @keyup.down="onSelectNextTown()"
-      @keyup.up="onSelectPreviousTown()"
-      @keyup.escape="reset()" />
+  <div class="grid relative pb-6" ref="searchElement">
+    <div class="relative">
+      <Icon
+        name="mdi:magnify"
+        aria-hidden="true"
+        size="24"
+        class="absolute top-4 left-2 text-secondary"
+      />
+      <input
+        type="search"
+        placeholder="Buscar municipio..."
+        v-model="searchQuery"
+        class="pl-10! text-lg"
+        @keyup.enter="onNavigateToSelectedTown()"
+        @keyup.down="onSelectNextTown()"
+        @keyup.up="onSelectPreviousTown()"
+        @keyup.escape="reset()"
+      />
+    </div>
     <ul
       v-if="searchResults.length > 0"
-      class="absolute z-50 top-16 left-0 right-0 shadow-2xl bg-neutral-100 max-h-[66dvh] overflow-y-auto dark:bg-neutral-800 dark:text-neutral-200">
+      class="absolute z-50 top-14 left-0 right-0 shadow-2xl max-h-[66dvh] overflow-y-auto bg-shaded backdrop-blur-2xl"
+    >
       <li
         v-for="(town, index) in searchResults"
-        class="block border-t border-1 border-dashed border-neutral-300 first:border-0 cursor-pointer p-4 hover:bg-neutral-200 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:hover:text-neutral-50"
+        class="block border-t border-dashed border-highlighted first:border-0 cursor-pointer p-4 hover:bg-highlighted transition-all duration-200"
         :class="{
-          'bg-neutral-200 dark:bg-neutral-700 dark:text-neutral-50':
-            selectedIndex === index
+          'bg-highlighted': selectedIndex === index
         }"
         role="button"
-        @click.prevent="onNavigateToTown(town.id)">
+        @click.prevent="onNavigateToTown(town.id)"
+      >
         <span class="font-semibold">{{ town.nombre }}</span
         >,
-        <span class="text-neutral-600 dark:text-neutral-400">{{
-          town.province
-        }}</span>
+        <span class="text-secondary">{{ town.province }}</span>
       </li>
     </ul>
   </div>
 </template>
+
+<style scoped>
+ul {
+  box-shadow: 0 0.5rem 0 hsl(0 0 0 / 0.2);
+}
+</style>

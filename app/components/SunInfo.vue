@@ -1,5 +1,8 @@
 <script setup lang="ts">
-import { turnTimeToPercentage, turnTimeto24HourFormat } from '~~/shared/utils/time'
+import {
+  turnTimeToPercentage,
+  turnTimeto24HourFormat
+} from '~~/shared/utils/time'
 
 const props = defineProps<{
   data: any
@@ -38,11 +41,9 @@ const middayPercent = computed(
 
 <template>
   <div class="w-full">
-    <div
-      class="relative w-full h-0.5 bg-neutral-300 dark:bg-neutral-700 rounded-md"
-    >
+    <div class="relative w-full h-0.5 bg-neutral-300 dark:bg-neutral-700">
       <div
-        class="absolute flex justify-center items-center gap-1 top-0 h-full bg-amber-600 dark:bg-amber-500 text-neutral-800 rounded-sm"
+        class="absolute flex justify-center items-center gap-1 top-0 h-full bg-amber-600 dark:bg-amber-500 text-neutral-800"
         :style="`left: ${dayStartPercent}%; width: ${
           dayEndPercent - dayStartPercent
         }%`"

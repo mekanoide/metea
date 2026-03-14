@@ -1,0 +1,71 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@theme {
+  --font-sans: 'Atkinson Mono', sans-serif;
+
+  --color-low: oklch(0.828 0.14 136);
+  --color-moderate: oklch(0.828 0.12 82);
+  --color-high: oklch(0.828 0.16 44);
+  --color-veryhigh: oklch(0.828 0.18 20);
+  --color-extreme: oklch(0.828 0.16 316);
+  --color-primary: oklch(from var(--color-neutral-900) l c h / 100%);
+  --color-secondary: oklch(from var(--color-neutral-900) l c h / 66%);
+  --color-tertiary: oklch(from var(--color-neutral-900) l c h / 30%);
+  --color-shaded: oklch(from var(--color-neutral-50) l c h / 20%);
+  --color-highlighted: oklch(from var(--color-neutral-50) l c h / 40%);
+  --color-background-1: hsl(30 20% 86%);
+  --color-background-2: hsl(0 0% 80%);
+}
+
+[data-theme='dark'] {
+  --color-low: oklch(0.769 0.14 136);
+  --color-moderate: oklch(0.769 0.12 82);
+  --color-high: oklch(0.769 0.16 44);
+  --color-veryhigh: oklch(0.769 0.18 20);
+  --color-extreme: oklch(0.769 0.16 316);
+  --color-primary: oklch(from var(--color-neutral-50) l c h / 100%);
+  --color-secondary: oklch(from var(--color-neutral-50) l c h / 66%);
+  --color-tertiary: oklch(from var(--color-neutral-50) l c h / 30%);
+  --color-shaded: oklch(from var(--color-neutral-50) l c h / 5%);
+  --color-highlighted: oklch(from var(--color-neutral-50) l c h / 10%);
+  --color-background-1: hsl(30 20% 12%);
+  --color-background-2: hsl(0 0% 4%);
+}
+
+:root {
+  interpolate-size: allow-keywords;
+}
+
+*,
+*::before,
+*::after {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply text-primary mx-auto;
+  font-family: var(--font-sans);
+  background: radial-gradient(
+    circle at 0% 0%,
+    var(--color-background-1) 0%,
+    var(--color-background-2) 100%
+  );
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+
+input:is(
+  [type='text'],
+  [type='search'],
+  [type='url'],
+  [type='email'],
+  [type='password']
+) {
+  @apply w-full py-3 px-4 border-b-2 bg-transparent border-secondary placeholder:text-secondary focus:outline focus:border-primary focus:outline-none;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}

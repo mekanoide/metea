@@ -13,45 +13,29 @@ const uvMeaning = computed(() => {
   return level?.label
 })
 
-function isCurrentIndex(index: number): boolean {
-  if (uvIndex.value >= 11 && index === 0) {
-    return true
-  }
-  if (uvIndex.value < 11 && uvIndex.value >= 8 && index === 1) {
-    return true
-  }
-  if (uvIndex.value < 8 && uvIndex.value >= 6 && index === 2) {
-    return true
-  }
-  if (uvIndex.value < 6 && uvIndex.value >= 3 && index === 3) {
-    return true
-  }
-  if (uvIndex.value < 3 && index === 4) {
-    return true
-  }
-  return false
-}
+const currentLevel = computed(() => {
+  if (uvIndex.value >= 11) return 0
+  if (uvIndex.value >= 8) return 1
+  if (uvIndex.value >= 6) return 2
+  if (uvIndex.value >= 3) return 3
+  return 4
+})
 
 const uvColor = computed(() => {
-  if (uvIndex.value < 3) {
-    return 'bg-low-light dark:bg-low-dark'
-  } else if (uvIndex.value < 6) {
-    return 'bg-moderate-light dark:bg-moderate-dark'
-  } else if (uvIndex.value < 8) {
-    return 'bg-high-low dark:bg-high-dark'
-  } else if (uvIndex.value < 11) {
-    return 'bg-veryhigh-light dark:bg-veryhigh-dark'
-  } else if (uvIndex.value >= 11) {
-    return 'bg-extreme-light dark:bg-extreme-dark'
-  }
+  if (uvIndex.value >= 11) return 'bg-extreme'
+  if (uvIndex.value >= 8) return 'bg-veryhigh'
+  if (uvIndex.value >= 6) return 'bg-high'
+  if (uvIndex.value >= 3) return 'bg-moderate'
+  return 'bg-low'
 })
+
+function cellColor(index: number): string {
+  return index >= currentLevel.value ? uvColor.value : 'bg-highlighted'
+}
 </script>
 
 <template>
-  <div
-    class="flex gap-1"
-    :title="`Índice UV máximo ${uvMeaning}`"
-  >
+  <div class="flex gap-1" :title="`Índice UV máximo ${uvMeaning}`">
     <div class="text-center">
       <div class="text-xs">UV</div>
       <div class="font-bold px-2 md:text-2xl">
@@ -61,10 +45,8 @@ const uvColor = computed(() => {
     <div class="grid gap-[2px]">
       <div
         v-for="(item, index) in 5"
-        class="w-4 rounded-sm"
-        :class="
-          isCurrentIndex(index) ? uvColor : 'bg-neutral-300 dark:bg-neutral-700'
-        "
+        class="w-4"
+        :class="cellColor(index)"
       ></div>
     </div>
   </div>

@@ -1,5 +1,7 @@
 <template>
-  <footer class="flex justify-between items-center py-2 text-center text-sm">
+  <footer
+    class="flex justify-between items-center mt-6 text-center text-sm text-secondary"
+  >
     <div>
       Creado por
       <NuxtLink

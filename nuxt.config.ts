@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import tailwindcss from '@tailwindcss/vite'
+
 export default defineNuxtConfig({
   nitro: {
     compressPublicAssets: {
@@ -55,11 +57,10 @@ export default defineNuxtConfig({
     API_URL: process.env.API_URL,
     API_KEY: process.env.API_KEY
   },
-  modules: ['@nuxt/icon', '@nuxtjs/i18n', '@nuxtjs/color-mode', '@nuxtjs/tailwindcss', '@nuxt/fonts'],
-  tailwindcss: {
-    exposeConfig: true,
-    cssPath: '@/assets/css/tailwind.css',
-    viewer: true
+  css: ['~/assets/css/main.css'],
+  modules: ['@nuxt/icon', '@nuxtjs/i18n', '@nuxtjs/color-mode', '@nuxt/fonts'],
+  vite: {
+    plugins: [tailwindcss() as any]
   },
   i18n: {
     vueI18n: '@@/i18n.config.ts'
@@ -67,12 +68,10 @@ export default defineNuxtConfig({
   colorMode: {
     preference: 'system',
     fallback: 'light',
-    hid: 'nuxt-color-mode-script',
-    globalName: '__NUXT_COLOR_MODE__',
-    componentName: 'ColorScheme',
+    dataValue: 'theme',
     classPrefix: '',
     classSuffix: '',
-    storage: 'localStorage', // or 'sessionStorage' or 'cookie'
+    storage: 'localStorage',
     storageKey: 'nuxt-color-mode'
   },
   compatibilityDate: '2025-07-17',

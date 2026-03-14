@@ -39,9 +39,7 @@ const sky = computed(() => {
 </script>
 
 <template>
-  <details
-    class="py-3 border-t border-neutral-300 dark:border-neutral-700 first:border-t-2 first:border-solid first:border-neutral-900 first:dark:border-neutral-200"
-  >
+  <details class="py-3 px-6 bg-shaded cursor-pointer">
     <summary class="flex justify-between items-center gap-3">
       <!-- Left block -->
       <DayHeader :date="data.fecha" />
@@ -50,14 +48,8 @@ const sky = computed(() => {
       <!-- Right block -->
       <div class="flex gap-4 items-center justify-self-end">
         <!-- TODO: alerts and warnings -->
-        <UvIndex
-          v-if="data.uvMax && data.uvMax > 0"
-          :data="data.uvMax"
-        />
-        <div
-          :aria-label="sky.description"
-          :title="sky.description"
-        >
+        <UvIndex v-if="data.uvMax && data.uvMax > 0" :data="data.uvMax" />
+        <div :aria-label="sky.description" :title="sky.description">
           <IconSky :data="sky.value" />
         </div>
         <div
@@ -72,7 +64,7 @@ const sky = computed(() => {
         </div>
       </div>
     </summary>
-    <div class="mt-6">
+    <div class="mt-6 border-t border-tertiary">
       <!-- Four periods -->
       <div v-if="data.estadoCielo.length === 7">
         <div class="flex">
@@ -143,10 +135,7 @@ const sky = computed(() => {
         <div>24:00</div>
       </div>
       <div class="grid gap-6">
-        <SunInfo
-          v-if="data.sunInfo"
-          :data="data.sunInfo"
-        />
+        <SunInfo v-if="data.sunInfo" :data="data.sunInfo" />
         <div class="grid md:grid-cols-2 gap-y-2 gap-x-6 content-start">
           <DataField>
             Humedad relativa:
@@ -199,11 +188,28 @@ const sky = computed(() => {
 </template>
 
 <style scoped>
-details :deep(.chevron) {
-  transition: all 0.2s ease-in-out;
+@reference "~/assets/css/main.css";
+
+details {
+  transition: all 250ms ease;
+  & :deep(.chevron) {
+    transition: all 250ms ease;
+  }
 }
 
-details[open] :deep(.chevron) {
-  rotate: 180deg;
+::details-content {
+  height: 0;
+  overflow: clip;
+  transition: all 250ms ease;
+}
+
+details[open] {
+  @apply bg-highlighted;
+  &::details-content {
+    height: auto;
+  }
+  & :deep(.chevron) {
+    rotate: 180deg;
+  }
 }
 </style>

@@ -13,14 +13,14 @@ const forecastData = ref<any>(null)
 async function loadForecast() {
   isLoading.value = true
   error.value = null
-  
+
   const { data, error: fetchError } = await useFetch(`/api/forecast/town/${id}`)
-  
+
   if (fetchError.value) {
     error.value = fetchError.value
   } else {
     forecastData.value = data.value
-    
+
     // Guardar municipio visitado
     if (data.value?.town) {
       saveVisitedTown({
@@ -30,7 +30,7 @@ async function loadForecast() {
       })
     }
   }
-  
+
   isLoading.value = false
 }
 
@@ -39,13 +39,13 @@ await loadForecast()
 
 // Actualizar título de la página
 useHead({
-  title: forecastData.value?.town?.nombre 
+  title: forecastData.value?.town?.nombre
     ? `Previsión para ${forecastData.value.town.nombre} | Metea`
     : 'Cargando pronóstico | Metea',
   meta: [
     {
       name: 'og:title',
-      content: forecastData.value?.town?.nombre 
+      content: forecastData.value?.town?.nombre
         ? `Previsión para ${forecastData.value.town.nombre}`
         : 'Cargando pronóstico'
     }
@@ -74,38 +74,40 @@ function getErrorMessage(error: any) {
 
 <template>
   <Search />
-  
+
   <!-- Estado de carga -->
-  <div v-if="isLoading" class="flex flex-col items-center justify-center min-h-[50vh] p-8">
+  <div
+    v-if="isLoading"
+    class="flex flex-col items-center justify-center min-h-[50vh] p-6"
+  >
     <Spinner />
     <h2 class="text-xl font-semibold mb-2">Cargando pronóstico</h2>
-    <p class="text-neutral-600 dark:text-neutral-400">
-      Conectando con AEMET...
-    </p>
+    <p class="text-secondary">Conectando con AEMET...</p>
   </div>
 
   <!-- Estado de error -->
-  <div v-else-if="error" class="flex flex-col items-center justify-center min-h-[50vh] p-8">
+  <div
+    v-else-if="error"
+    class="flex flex-col items-center justify-center min-h-[50vh] p-8"
+  >
     <div class="text-center max-w-md">
       <Icon name="mdi:alert-circle" size="48" />
-      <h2 class="text-xl font-semibold mb-4">
-        Error al cargar el pronóstico
-      </h2>
-      <p class="text-neutral-600 dark:text-neutral-400 mb-4">
+      <h2 class="text-xl font-semibold mb-4">Error al cargar el pronóstico</h2>
+      <p class="text-secondary mb-4">
         {{ getErrorMessage(error) }}
       </p>
-      <button
-        @click="retry"
-      >
-        Intentar de nuevo
-      </button>
+      <button @click="retry">Intentar de nuevo</button>
     </div>
   </div>
 
   <!-- Datos del pronóstico -->
-  <article v-else-if="forecastData" class="animate-fade-in">
-    <TownInfo :data="forecastData.town" />
-    <Day v-for="day in forecastData.prediccion.dia" :key="day.fecha" :data="day" />
+  <article v-else-if="forecastData" class="animate-fade-in space-y-3">
+    <TownInfo class="p-6" :data="forecastData.town" />
+    <Day
+      v-for="day in forecastData.prediccion.dia"
+      :key="day.fecha"
+      :data="day"
+    />
   </article>
 </template>
 
