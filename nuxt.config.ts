@@ -2,12 +2,6 @@
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineNuxtConfig({
-  nitro: {
-    compressPublicAssets: {
-      brotli: true
-    }
-  },
-  future: { compatibilityVersion: 4 },
   app: {
     head: {
       htmlAttrs: { lang: 'es' },
