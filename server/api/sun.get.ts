@@ -1,6 +1,3 @@
-import towns from "@@/server/data/towns.json" // Asumiendo que tienes un archivo JSON con los municipios
-import provinces from "@@/server/data/provinces.json"
-
 export default defineEventHandler(async (event: any) => {
   type Sun = {
     results: {
@@ -22,9 +19,17 @@ export default defineEventHandler(async (event: any) => {
   const latitude = (query.lat as string) || ""
   const longitude = (query.lng as string) || ""
   const date = (query.date as string) || ""
-  const { results }: Sun = await $fetch(
-    `https://api.sunrisesunset.io/json?lat=${latitude}&lng=${longitude}&date=${date}`
-  )
 
-  return results
+  const response = await $fetch<Sun>(
+    `https://api.sunrisesunset.io/json?lat=${latitude}&lng=${longitude}&date=${date}`,
+    {
+      timeout: 8000,
+      retry: 1,
+      retryDelay: 1000
+    }
+  ).catch(() => {
+    return { results: [], status: 'error' } as Sun
+  })
+
+  return response.results
 })

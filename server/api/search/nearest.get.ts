@@ -2,8 +2,15 @@ import towns from '@@/server/data/towns.json' // Asumiendo que tienes un archivo
 
 export default defineEventHandler(async (event) => {
   const query = getQuery(event)
-  const longitude = query.lng as number
-  const latitude = query.lat as number
+  const longitude = Number(query.lng)
+  const latitude = Number(query.lat)
+
+  if (!latitude || !longitude || isNaN(latitude) || isNaN(longitude)) {
+    throw createError({
+      statusCode: 400,
+      message: 'Coordenadas de ubicación no válidas'
+    })
+  }
 
   type Town = {
     latitud: string

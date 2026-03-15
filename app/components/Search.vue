@@ -11,12 +11,16 @@ async function onSearch() {
     searchResults.value = []
     return
   }
-  const data = await $fetch('/api/search/town', {
-    params: {
-      search: searchQuery.value
-    }
-  })
-  searchResults.value = data
+  try {
+    const data = await $fetch('/api/search/town', {
+      params: {
+        search: searchQuery.value
+      }
+    })
+    searchResults.value = data
+  } catch {
+    searchResults.value = []
+  }
 }
 
 function reset() {

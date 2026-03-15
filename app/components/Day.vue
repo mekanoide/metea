@@ -127,7 +127,7 @@ const sky = computed(() => {
           :gust="data.rachaMax[0].value"
         />
       </div>
-      <div class="w-full flex justify-between text-sm text-neutral-500 py-1">
+      <div class="w-full flex justify-between text-sm text-secondary py-1">
         <div>00:00</div>
         <div class="-translate-x-2">06:00</div>
         <div>12:00</div>
@@ -137,8 +137,7 @@ const sky = computed(() => {
       <div class="grid gap-6">
         <SunInfo v-if="data.sunInfo" :data="data.sunInfo" />
         <div class="grid md:grid-cols-2 gap-y-2 gap-x-6 content-start">
-          <DataField>
-            Humedad relativa:
+          <DataField label="Humedad relativa:">
             <Value>{{ data.humedadRelativa.minima }}</Value
             ><Unit>%</Unit><span> - </span>
             <Value
@@ -146,8 +145,7 @@ const sky = computed(() => {
               >{{ data.humedadRelativa.maxima }}</Value
             ><Unit>%</Unit>
           </DataField>
-          <DataField v-if="data.sensTermica">
-            Sensación térmica:
+          <DataField v-if="data.sensTermica" label="Sensación térmica:">
             <Value>{{ data.sensTermica.maxima }}</Value
             ><Unit>°C</Unit><span> - </span>
             <Value
@@ -155,12 +153,10 @@ const sky = computed(() => {
               >{{ data.sensTermica.minima }}</Value
             ><Unit>°C</Unit>
           </DataField>
-          <DataField v-if="data.uvMax">
-            Índice UV máximo:
+          <DataField v-if="data.uvMax" label="Índice UV máximo:">
             <Value>{{ data.uvMax }}</Value> ({{ uvMeaning(data.uvMax) }})
           </DataField>
-          <DataField v-if="data.rachaMax[0].value">
-            Rachas máximas:
+          <DataField v-if="data.rachaMax[0].value" label="Rachas máximas:">
             <Value>{{ data.rachaMax[0].value }}</Value
             ><Unit>km/h</Unit>
           </DataField>

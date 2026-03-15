@@ -13,10 +13,10 @@
   --color-primary: oklch(from var(--color-neutral-900) l c h / 100%);
   --color-secondary: oklch(from var(--color-neutral-900) l c h / 66%);
   --color-tertiary: oklch(from var(--color-neutral-900) l c h / 30%);
-  --color-shaded: oklch(from var(--color-neutral-50) l c h / 20%);
-  --color-highlighted: oklch(from var(--color-neutral-50) l c h / 40%);
+  --color-shaded: oklch(from white l c h / 20%);
+  --color-highlighted: oklch(from white l c h / 40%);
   --color-background-1: hsl(30 20% 86%);
-  --color-background-2: hsl(0 0% 80%);
+  --color-background-2: hsl(0 0% 76%);
 }
 
 [data-theme='dark'] {
@@ -28,8 +28,8 @@
   --color-primary: oklch(from var(--color-neutral-50) l c h / 100%);
   --color-secondary: oklch(from var(--color-neutral-50) l c h / 66%);
   --color-tertiary: oklch(from var(--color-neutral-50) l c h / 30%);
-  --color-shaded: oklch(from var(--color-neutral-50) l c h / 5%);
-  --color-highlighted: oklch(from var(--color-neutral-50) l c h / 10%);
+  --color-shaded: oklch(from white l c h / 5%);
+  --color-highlighted: oklch(from white l c h / 10%);
   --color-background-1: hsl(30 20% 12%);
   --color-background-2: hsl(0 0% 4%);
 }
